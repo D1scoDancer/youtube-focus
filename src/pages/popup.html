@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>Youtube Focus</title>
+    <link rel="stylesheet" href="pages.css" />
+    <style>
+      body {
+        width: 280px;
+        padding: 16px;
+      }
+      .card {
+        padding: 0;
+        border: 0;
+        background: transparent;
+      }
+      h1 {
+        font-size: 16px;
+      }
+      .row {
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 16px;
+      }
+      button,
+      .button {
+        width: 100%;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <h1>Youtube Focus</h1>
+      <p id="state">—</p>
+      <div class="row">
+        <a id="planned" class="button primary" href="#" target="_blank" rel="noreferrer">
+          Открыть запланированное
+        </a>
+        <button id="snooze" type="button">Пауза на 15 минут</button>
+        <button id="options" type="button">Настройки</button>
+      </div>
+    </main>
+    <script src="../common/settings.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

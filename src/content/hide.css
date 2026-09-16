@@ -1,0 +1,128 @@
+/*
+ * Правила скрытия Youtube Focus.
+ *
+ * Все селекторы завязаны на html:not(.ytfocus-off): до чтения настроек класса
+ * .ytfocus-off нет, поэтому Shorts скрыты уже на первой отрисовке и не мигают.
+ * Когда расширение выключено или стоит на паузе, guard.js вешает .ytfocus-off
+ * и всё возвращается к исходному виду.
+ *
+ * ЕСЛИ SHORTS ВЕРНУЛИСЬ НА СТРАНИЦУ — чинить селекторы здесь и в
+ * SHORTS_SELECTORS из src/content/sweep.js.
+ */
+
+/* --- пока настройки не прочитаны: не показываем ленту главной --- */
+html.ytfocus-boot ytd-browse[page-subtype="home"] {
+  visibility: hidden !important;
+}
+
+/* --- Shorts: полки и секции --- */
+html:not(.ytfocus-off) ytd-reel-shelf-renderer,
+html:not(.ytfocus-off) ytd-rich-shelf-renderer[is-shorts],
+html:not(.ytfocus-off) ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[is-shorts]),
+html:not(.ytfocus-off) ytd-item-section-renderer:has(ytd-reel-shelf-renderer),
+html:not(.ytfocus-off) grid-shelf-view-model:has(a[href^="/shorts/"]) {
+  display: none !important;
+}
+
+/* --- Shorts: отдельные карточки в ленте, поиске, подписках, сайдбаре --- */
+html:not(.ytfocus-off) ytd-reel-item-renderer,
+html:not(.ytfocus-off) ytm-shorts-lockup-view-model,
+html:not(.ytfocus-off) ytm-shorts-lockup-view-model-v2,
+html:not(.ytfocus-off) ytd-rich-item-renderer:has(a[href^="/shorts/"]),
+html:not(.ytfocus-off) ytd-video-renderer:has(a[href^="/shorts/"]),
+html:not(.ytfocus-off) ytd-grid-video-renderer:has(a[href^="/shorts/"]),
+html:not(.ytfocus-off) ytd-compact-video-renderer:has(a[href^="/shorts/"]),
+html:not(.ytfocus-off) yt-lockup-view-model:has(a[href^="/shorts/"]) {
+  display: none !important;
+}
+
+/* --- Shorts: пункт в левом меню (href, а не подпись — не зависит от языка) --- */
+html:not(.ytfocus-off) ytd-guide-entry-renderer:has(a[href^="/shorts"]),
+html:not(.ytfocus-off) ytd-mini-guide-entry-renderer:has(a[href^="/shorts"]) {
+  display: none !important;
+}
+
+/* --- Shorts: вкладка на странице канала --- */
+html:not(.ytfocus-off) tp-yt-paper-tab:has(a[href$="/shorts"]),
+html:not(.ytfocus-off) yt-tab-shape[tab-title="Shorts"],
+html:not(.ytfocus-off) yt-tab-group-shape yt-tab-shape:has(a[href$="/shorts"]) {
+  display: none !important;
+}
+
+/* --- добито из sweep.js --- */
+html:not(.ytfocus-off) .ytfocus-hidden {
+  display: none !important;
+}
+
+/* --- витрина: гасим автопревью при наведении, оно само по себе просмотр --- */
+html.ytfocus-showcase ytd-video-preview,
+html.ytfocus-showcase #video-preview,
+html.ytfocus-showcase ytd-thumbnail-overlay-loading-preview-renderer {
+  display: none !important;
+}
+
+/* --- витрина: курсор не обещает перехода там, где его нет --- */
+html.ytfocus-showcase ytd-rich-item-renderer a#thumbnail,
+html.ytfocus-showcase ytd-rich-item-renderer a#video-title-link {
+  cursor: default !important;
+}
+
+/* --- /watch: правый столбец рекомендаций (по умолчанию выключено) --- */
+html.ytfocus-no-sidebar #secondary.ytd-watch-flexy,
+html.ytfocus-no-sidebar #related.ytd-watch-flexy {
+  display: none !important;
+}
+
+/* без сайдбара плеер должен занять освободившуюся ширину, иначе справа дыра */
+html.ytfocus-no-sidebar #primary.ytd-watch-flexy {
+  max-width: none !important;
+}
+
+/* конечные заставки с рекомендациями поверх видео */
+html.ytfocus-no-sidebar .ytp-endscreen-content,
+html.ytfocus-no-sidebar .ytp-ce-element {
+  display: none !important;
+}
+
+/* --- /watch: комментарии (по умолчанию выключено) --- */
+html.ytfocus-no-comments ytd-comments#comments {
+  display: none !important;
+}
+
+/* --- тост при мёртвом клике --- */
+#ytfocus-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%) translateY(12px);
+  z-index: 2147483647;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  max-width: min(92vw, 560px);
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: #1f1f1f;
+  color: #f1f1f1;
+  font: 500 13px/1.4 Roboto, Arial, sans-serif;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+#ytfocus-toast.ytfocus-toast-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+#ytfocus-toast a {
+  color: #3ea6ff;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+#ytfocus-toast a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>Настройки — Youtube Focus</title>
+    <link rel="stylesheet" href="pages.css" />
+  </head>
+  <body>
+    <main class="card">
+      <h1>Youtube Focus</h1>
+      <p>Меньше ленты, ноль Shorts, смотрим только то, что запланировали.</p>
+
+      <h2>Главная страница</h2>
+      <label>
+        <input type="radio" name="homeMode" value="showcase" />
+        <span>
+          Витрина без запуска
+          <small>
+            Лента видна, но клик по видео ничего не делает. Кнопка «Смотреть
+            позже» на превью работает — ею и пополняется план.
+          </small>
+        </span>
+      </label>
+      <label>
+        <input type="radio" name="homeMode" value="redirect" />
+        <span>
+          Сразу уходить на план
+          <small>youtube.com заменяется на страницу запланированного.</small>
+        </span>
+      </label>
+
+      <h2>Запланированное</h2>
+      <label>
+        <span style="width: 100%">
+          Адрес плана
+          <small>
+            По умолчанию — родной плейлист «Смотреть позже». Должен вести на
+            youtube.com и иметь непустой путь.
+          </small>
+          <input id="plannedUrl" type="url" spellcheck="false" />
+        </span>
+      </label>
+
+      <h2>Shorts</h2>
+      <label>
+        <input type="radio" name="shortsMode" value="block" />
+        <span>
+          Скрывать и блокировать переход
+          <small>Открытие /shorts/… показывает заглушку расширения.</small>
+        </span>
+      </label>
+      <label>
+        <input type="radio" name="shortsMode" value="hide" />
+        <span>
+          Только скрывать
+          <small>Прямая ссылка на Shorts продолжит открываться.</small>
+        </span>
+      </label>
+
+      <h2>Страница видео</h2>
+      <label>
+        <input id="hideWatchSidebar" type="checkbox" />
+        <span>
+          Скрывать рекомендации справа
+          <small>Заодно убирает конечные заставки поверх плеера.</small>
+        </span>
+      </label>
+      <label>
+        <input id="hideComments" type="checkbox" />
+        <span>Скрывать комментарии</span>
+      </label>
+
+      <h2>Прочее</h2>
+      <label>
+        <input id="showToast" type="checkbox" />
+        <span>
+          Показывать подсказку при мёртвом клике
+          <small>Иначе клик по видео в ленте выглядит как баг сайта.</small>
+        </span>
+      </label>
+      <label>
+        <input id="enabled" type="checkbox" />
+        <span>Расширение включено</span>
+      </label>
+
+      <div class="row">
+        <button id="save" class="primary" type="button">Сохранить</button>
+        <button id="reset" type="button">Сбросить настройки</button>
+      </div>
+      <div id="status" class="status" role="status"></div>
+    </main>
+    <script src="../common/settings.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>
