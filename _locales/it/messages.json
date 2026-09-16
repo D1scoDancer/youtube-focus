@@ -8,6 +8,18 @@
   "tagline": {
     "message": "Meno feed, zero Shorts, e solo ciò che avevi programmato di guardare."
   },
+  "sectionLanguage": {
+    "message": "Lingua"
+  },
+  "languageLabel": {
+    "message": "Lingua dell’interfaccia"
+  },
+  "languageHint": {
+    "message": "Per impostazione predefinita l’estensione segue la lingua dell’interfaccia di Chrome."
+  },
+  "languageAuto": {
+    "message": "Come il browser"
+  },
   "toastText": {
     "message": "Aprire i video dal feed è disattivato. Salvalo in «Guarda più tardi»."
   },

@@ -15,7 +15,24 @@
     return input ? input.value : null;
   }
 
+  function fillLanguages(selected) {
+    const select = $('language');
+    select.textContent = '';
+    const auto = document.createElement('option');
+    auto.value = 'auto';
+    auto.textContent = YtFocusI18n.t('languageAuto');
+    select.append(auto);
+    for (const [code, title] of YtFocus.LANGUAGES) {
+      const option = document.createElement('option');
+      option.value = code;
+      option.textContent = title;
+      select.append(option);
+    }
+    select.value = selected;
+  }
+
   function render(settings) {
+    fillLanguages(settings.language);
     radio('homeMode', settings.homeMode);
     radio('shortsMode', settings.shortsMode);
     $('plannedUrl').value = settings.plannedUrl;
@@ -31,7 +48,15 @@
     }, 4000);
   }
 
+  await YtFocusI18n.ready;
   render(await YtFocus.getSettings());
+
+  // Язык применяем сразу, не дожидаясь «Сохранить»: иначе непонятно, что выбрал.
+  $('language').addEventListener('change', async () => {
+    await YtFocus.setSettings({ language: $('language').value });
+    await YtFocusI18n.reload();
+    render(await YtFocus.getSettings());
+  });
 
   $('save').addEventListener('click', async () => {
     const typed = $('plannedUrl').value.trim();
@@ -42,20 +67,29 @@
       plannedUrl: planned,
     };
     for (const key of CHECKBOXES) patch[key] = $(key).checked;
+    patch.language = $('language').value;
 
     await YtFocus.setSettings(patch);
     $('plannedUrl').value = planned;
 
     if (typed && planned !== typed) {
-      say(chrome.i18n.getMessage('statusSavedFallback'), true);
+      say(YtFocusI18n.t('statusSavedFallback'), true);
     } else {
-      say(chrome.i18n.getMessage('statusSaved'));
+      say(YtFocusI18n.t('statusSaved'));
     }
   });
 
   $('reset').addEventListener('click', async () => {
     await YtFocus.setSettings(YtFocus.DEFAULTS);
+    await YtFocusI18n.ready;
+  render(await YtFocus.getSettings());
+
+  // Язык применяем сразу, не дожидаясь «Сохранить»: иначе непонятно, что выбрал.
+  $('language').addEventListener('change', async () => {
+    await YtFocus.setSettings({ language: $('language').value });
+    await YtFocusI18n.reload();
     render(await YtFocus.getSettings());
-    say(chrome.i18n.getMessage('statusReset'));
+  });
+    say(YtFocusI18n.t('statusReset'));
   });
 })();

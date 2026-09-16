@@ -8,6 +8,18 @@
   "tagline": {
     "message": "Mniej feedu, zero Shortsów, tylko to, co zaplanowałeś obejrzeć."
   },
+  "sectionLanguage": {
+    "message": "Język"
+  },
+  "languageLabel": {
+    "message": "Język interfejsu"
+  },
+  "languageHint": {
+    "message": "Domyślnie rozszerzenie podąża za językiem interfejsu Chrome."
+  },
+  "languageAuto": {
+    "message": "Tak jak przeglądarka"
+  },
   "toastText": {
     "message": "Otwieranie filmów z feedu jest wyłączone. Zapisz go w „Do obejrzenia”."
   },

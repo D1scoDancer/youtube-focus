@@ -8,6 +8,18 @@
   "tagline": {
     "message": "कम फ़ीड, शून्य Shorts, और सिर्फ़ वही जो आपने देखने की योजना बनाई थी।"
   },
+  "sectionLanguage": {
+    "message": "भाषा"
+  },
+  "languageLabel": {
+    "message": "इंटरफ़ेस की भाषा"
+  },
+  "languageHint": {
+    "message": "डिफ़ॉल्ट रूप से एक्सटेंशन Chrome के इंटरफ़ेस की भाषा का अनुसरण करता है।"
+  },
+  "languageAuto": {
+    "message": "ब्राउज़र जैसी"
+  },
   "toastText": {
     "message": "फ़ीड से वीडियो खोलना बंद है। उसे «बाद में देखें» में सहेजें।"
   },

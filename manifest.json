@@ -29,6 +29,7 @@
       "all_frames": false,
       "js": [
         "src/common/settings.js",
+        "src/common/i18n.js",
         "src/common/nav.js",
         "src/content/guard.js",
         "src/content/sweep.js"
@@ -51,6 +52,14 @@
     {
       "resources": [
         "src/pages/blocked.html"
+      ],
+      "matches": [
+        "*://*.youtube.com/*"
+      ]
+    },
+    {
+      "resources": [
+        "_locales/*/messages.json"
       ],
       "matches": [
         "*://*.youtube.com/*"

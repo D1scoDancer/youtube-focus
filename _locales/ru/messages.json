@@ -8,6 +8,18 @@
   "tagline": {
     "message": "Меньше ленты, ноль Shorts, смотрим только то, что запланировали."
   },
+  "sectionLanguage": {
+    "message": "Язык"
+  },
+  "languageLabel": {
+    "message": "Язык интерфейса"
+  },
+  "languageHint": {
+    "message": "По умолчанию расширение следует языку интерфейса Chrome."
+  },
+  "languageAuto": {
+    "message": "Как в браузере"
+  },
   "toastText": {
     "message": "Переход из ленты отключён. Сохраните в «Смотреть позже»."
   },

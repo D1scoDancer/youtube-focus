@@ -8,6 +8,18 @@
   "tagline": {
     "message": "Менше стрічки, нуль Shorts, дивимося лише те, що запланували."
   },
+  "sectionLanguage": {
+    "message": "Мова"
+  },
+  "languageLabel": {
+    "message": "Мова інтерфейсу"
+  },
+  "languageHint": {
+    "message": "Типово розширення слідує мові інтерфейсу Chrome."
+  },
+  "languageAuto": {
+    "message": "Як у браузері"
+  },
   "toastText": {
     "message": "Перехід зі стрічки вимкнено. Збережіть у «Переглянути пізніше»."
   },

@@ -10,6 +10,18 @@
   "tagline": {
     "message": "Less feed, zero Shorts, and only what you planned to watch."
   },
+  "sectionLanguage": {
+    "message": "Language"
+  },
+  "languageLabel": {
+    "message": "Interface language"
+  },
+  "languageHint": {
+    "message": "By default the extension follows the Chrome interface language."
+  },
+  "languageAuto": {
+    "message": "Same as the browser"
+  },
   "toastText": {
     "message": "Opening videos from the feed is off. Save it to Watch later instead."
   },

@@ -8,6 +8,18 @@
   "tagline": {
     "message": "피드는 줄이고 Shorts는 없애고, 보기로 한 것만 봅니다."
   },
+  "sectionLanguage": {
+    "message": "언어"
+  },
+  "languageLabel": {
+    "message": "인터페이스 언어"
+  },
+  "languageHint": {
+    "message": "기본적으로 Chrome의 인터페이스 언어를 따릅니다."
+  },
+  "languageAuto": {
+    "message": "브라우저와 동일"
+  },
   "toastText": {
     "message": "피드에서 동영상 열기를 껐습니다. ‘나중에 볼 동영상’에 저장하세요."
   },

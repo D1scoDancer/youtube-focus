@@ -8,6 +8,18 @@
   "tagline": {
     "message": "Daha az akış, sıfır Shorts, yalnızca izlemeyi planladığınız şeyler."
   },
+  "sectionLanguage": {
+    "message": "Dil"
+  },
+  "languageLabel": {
+    "message": "Arayüz dili"
+  },
+  "languageHint": {
+    "message": "Varsayılan olarak uzantı, Chrome arayüz dilini izler."
+  },
+  "languageAuto": {
+    "message": "Tarayıcıdaki gibi"
+  },
   "toastText": {
     "message": "Akıştan video açma kapalı. Videoyu «Daha sonra izle» listesine kaydedin."
   },

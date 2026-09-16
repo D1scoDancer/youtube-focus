@@ -8,6 +8,18 @@
   "tagline": {
     "message": "フィードは控えめに、ショートはゼロ。観ると決めたものだけを観る。"
   },
+  "sectionLanguage": {
+    "message": "言語"
+  },
+  "languageLabel": {
+    "message": "表示言語"
+  },
+  "languageHint": {
+    "message": "既定では Chrome の表示言語に従います。"
+  },
+  "languageAuto": {
+    "message": "ブラウザに合わせる"
+  },
   "toastText": {
     "message": "フィードからの再生は無効です。「後で見る」に保存してください。"
   },

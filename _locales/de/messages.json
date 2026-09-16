@@ -8,6 +8,18 @@
   "tagline": {
     "message": "Weniger Feed, null Shorts, und nur das, was Sie sich vorgenommen haben."
   },
+  "sectionLanguage": {
+    "message": "Sprache"
+  },
+  "languageLabel": {
+    "message": "Sprache der Oberfläche"
+  },
+  "languageHint": {
+    "message": "Standardmäßig folgt die Erweiterung der Oberflächensprache von Chrome."
+  },
+  "languageAuto": {
+    "message": "Wie im Browser"
+  },
   "toastText": {
     "message": "Videos aus dem Feed zu öffnen ist abgeschaltet. Speichern Sie es unter „Später ansehen“."
   },

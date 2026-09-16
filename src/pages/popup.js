@@ -4,7 +4,7 @@
   const SNOOZE_MS = 15 * 60 * 1000;
   const $ = (id) => document.getElementById(id);
 
-  const t = (key, ...args) => chrome.i18n.getMessage(key, args.map(String));
+  const t = (key, ...args) => YtFocusI18n.t(key, ...args);
 
   function describe(settings) {
     if (!settings.enabled) return t('stateDisabled');
@@ -24,6 +24,7 @@
     return settings;
   }
 
+  await YtFocusI18n.ready;
   await refresh();
 
   $('snooze').addEventListener('click', async () => {

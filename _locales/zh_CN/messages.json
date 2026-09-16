@@ -8,6 +8,18 @@
   "tagline": {
     "message": "更少信息流，零 Shorts，只看你计划要看的内容。"
   },
+  "sectionLanguage": {
+    "message": "语言"
+  },
+  "languageLabel": {
+    "message": "界面语言"
+  },
+  "languageHint": {
+    "message": "默认跟随 Chrome 的界面语言。"
+  },
+  "languageAuto": {
+    "message": "与浏览器一致"
+  },
   "toastText": {
     "message": "已关闭从信息流打开视频。请用「稍后观看」保存它。"
   },

@@ -3,8 +3,28 @@
 (function (scope) {
   'use strict';
 
+  // Языки, на которые переведён интерфейс. Подписи — самоназвания, их переводить
+  // не нужно. Ключи совпадают с папками в _locales/.
+  const LANGUAGES = [
+    ['en', 'English'],
+    ['ru', 'Русский'],
+    ['uk', 'Українська'],
+    ['es', 'Español'],
+    ['pt_BR', 'Português (Brasil)'],
+    ['fr', 'Français'],
+    ['de', 'Deutsch'],
+    ['it', 'Italiano'],
+    ['pl', 'Polski'],
+    ['tr', 'Türkçe'],
+    ['ja', '日本語'],
+    ['ko', '한국어'],
+    ['zh_CN', '简体中文'],
+    ['hi', 'हिन्दी'],
+  ];
+
   const DEFAULTS = {
     enabled: true,
+    language: 'auto', // 'auto' — как в браузере, иначе код из LANGUAGES
     homeMode: 'showcase', // 'showcase' — лента видна, клики мёртвые; 'redirect' — уход на план
     plannedUrl: 'https://www.youtube.com/playlist?list=WL',
     shortsMode: 'block', // 'block' — заглушка при переходе; 'hide' — только прятать
@@ -38,6 +58,7 @@
     s.hideWatchSidebar = Boolean(s.hideWatchSidebar);
     s.hideComments = Boolean(s.hideComments);
     s.snoozeUntil = Number(s.snoozeUntil) || 0;
+    s.language = LANGUAGES.some(([code]) => code === s.language) ? s.language : 'auto';
     return s;
   }
 
@@ -65,6 +86,7 @@
 
   scope.YtFocus = {
     DEFAULTS,
+    LANGUAGES,
     getSettings,
     setSettings,
     normalize,

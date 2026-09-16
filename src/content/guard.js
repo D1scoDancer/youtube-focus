@@ -145,9 +145,9 @@
       toast = document.createElement('div');
       toast.id = 'ytfocus-toast';
       const text = document.createElement('span');
-      text.textContent = chrome.i18n.getMessage('toastText');
+      text.textContent = YtFocusI18n.t('toastText');
       const link = document.createElement('a');
-      link.textContent = chrome.i18n.getMessage('toastLink');
+      link.textContent = YtFocusI18n.t('toastLink');
       link.href = settings.plannedUrl;
       toast.append(text, link);
       document.body.appendChild(toast);
@@ -197,7 +197,7 @@
   YtFocusNav.onUrlChange(apply);
 
   YtFocus.onSettingsChanged(() => {
-    YtFocus.getSettings().then((next) => {
+    YtFocusI18n.reload().then(() => YtFocus.getSettings()).then((next) => {
       settings = next;
       apply();
     });
