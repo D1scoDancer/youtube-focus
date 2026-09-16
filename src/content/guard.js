@@ -28,7 +28,12 @@
   // Ссылка, которая запускает видео. Каналы (/@name, /channel/...) намеренно
   // не трогаем: уход на канал — осознанный выбор, а не залипание в ленте.
   function isVideoLink(anchor) {
-    const href = anchor && anchor.getAttribute && anchor.getAttribute('href');
+    if (!anchor || !anchor.getAttribute) return false;
+    // У карточек на главной href снят (см. defuseLinks в sweep.js), адрес лежит
+    // в data-атрибуте. Без этого запаса перехватчик перестал бы узнавать ссылку,
+    // а YouTube всё равно открыл бы видео — он ходит по своим внутренним данным,
+    // а не по href.
+    const href = anchor.getAttribute('href') || (anchor.dataset && anchor.dataset.ytfocusHref);
     if (!href) return false;
     let url;
     try {
