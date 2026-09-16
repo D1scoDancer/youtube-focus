@@ -1,12 +1,12 @@
-// Добивает Shorts, до которых не дотянулся hide.css: YouTube перерисовывает
-// списки, меняет теги карточек и иногда рендерит их вне описанных контейнеров.
+// Finishes off the Shorts that hide.css could not reach: YouTube redraws its
+// lists, renames card tags and sometimes renders them outside the containers
+// described there.
 //
-// ЕСЛИ SHORTS ВЕРНУЛИСЬ НА СТРАНИЦУ — чинить здесь и в src/content/hide.css.
+// IF SHORTS ARE BACK ON THE PAGE — fix it here and in src/content/hide.css.
 (function () {
   'use strict';
 
-  // Контейнеры-карточки, которые имеет смысл скрывать целиком, если внутри
-  // обнаружилась ссылка на /shorts/.
+  // Card containers worth hiding whole once a /shorts/ link turns up inside.
   const CARD_SELECTORS = [
     'ytd-rich-item-renderer',
     'ytd-video-renderer',
@@ -19,7 +19,7 @@
     'ytm-shorts-lockup-view-model-v2',
   ].join(', ');
 
-  // Полки целиком.
+  // Whole shelves.
   const SHELF_SELECTORS = [
     'ytd-reel-shelf-renderer',
     'ytd-rich-shelf-renderer[is-shorts]',
@@ -27,7 +27,7 @@
   ].join(', ');
 
   const HIDDEN_CLASS = 'ytfocus-hidden';
-  const HREF_STASH = 'ytfocusHref'; // dataset-ключ, куда прячется снятый href
+  const HREF_STASH = 'ytfocusHref'; // dataset key the stripped href is parked in
   let scheduled = false;
 
   function hide(element) {
@@ -35,14 +35,14 @@
     element.classList.add(HIDDEN_CLASS);
   }
 
-  // В режиме витрины перехвата клика мало: правый клик открывает меню браузера,
-  // и «Открыть ссылку в новой вкладке» уводит на видео мимо всех обработчиков —
-  // переход делает браузер, а не страница. Поэтому у карточек на главной
-  // снимается сам href: в контекстном меню просто нет пункта про ссылку, заодно
-  // отваливаются перетаскивание и «Копировать адрес ссылки».
+  // In showcase mode intercepting clicks is not enough: a right click opens the
+  // browser menu, and "Open link in new tab" reaches the video past every page
+  // handler — the browser navigates, not the page. So cards on the home page have
+  // their href removed: the context menu then has no link entry at all, and
+  // dragging and "Copy link address" stop working as a bonus.
   //
-  // Ссылки на Shorts при этом не трогаем: по их href работает скрытие карточек,
-  // а прямой заход на /shorts/ перехватывает правило declarativeNetRequest.
+  // Shorts links are left intact: hiding their cards relies on that href, and a
+  // direct visit to /shorts/ is caught by the declarativeNetRequest rule.
   function defuseLinks() {
     const showcase = document.documentElement.classList.contains('ytfocus-showcase');
 
@@ -54,7 +54,7 @@
       return;
     }
 
-    // Ушли с главной или расширение на паузе — возвращаем ссылки на место.
+    // Left the home page, or the extension is paused: put the links back.
     for (const link of document.querySelectorAll('a[data-ytfocus-href]')) {
       link.setAttribute('href', link.dataset[HREF_STASH]);
       delete link.dataset[HREF_STASH];
@@ -71,11 +71,11 @@
     }
 
     for (const shelf of document.querySelectorAll(SHELF_SELECTORS)) {
-      // grid-shelf-view-model используется не только под Shorts — проверяем содержимое.
+      // grid-shelf-view-model is not used for Shorts only — check the contents.
       if (shelf.tagName === 'GRID-SHELF-VIEW-MODEL' && !shelf.querySelector('a[href^="/shorts/"]')) {
         continue;
       }
-      // Пустая рамка секции выглядит как дыра — прячем секцию, если она есть.
+      // An empty section frame looks like a hole, so hide the section if there is one.
       hide(shelf.closest('ytd-rich-section-renderer, ytd-item-section-renderer') || shelf);
     }
   }
@@ -105,7 +105,7 @@
     document.addEventListener('DOMContentLoaded', start, { once: true });
   }
 
-  // guard.js дёргает это после смены режима: если YouTube переиспользовал
-  // готовый DOM и мутаций не было, наблюдатель сам бы не проснулся.
+  // guard.js calls this after a mode change: if YouTube reused a ready-made DOM
+  // and nothing mutated, the observer would never wake up on its own.
   globalThis.YtFocusSweep = { schedule };
 })();

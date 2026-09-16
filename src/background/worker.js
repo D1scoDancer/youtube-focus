@@ -1,5 +1,5 @@
-// Service worker: дефолты при установке и включение/выключение DNR-правила,
-// которое перехватывает прямые заходы на /shorts/.
+// Service worker: seeds the defaults on install and switches the DNR rule that
+// intercepts direct visits to /shorts/ on and off.
 importScripts('/src/common/settings.js');
 
 const SHORTS_RULESET = 'shorts';
@@ -20,12 +20,12 @@ async function syncRuleset() {
         : { disableRulesetIds: [SHORTS_RULESET] }
     );
   } catch (err) {
-    console.error('[Youtube Focus] не удалось переключить правило Shorts:', err);
+    console.error('[Youtube Focus] could not toggle the Shorts rule:', err);
   }
 }
 
-// Пауза заканчивается по времени, а сама по себе ничего не сообщает —
-// ставим будильник, иначе правило останется выключенным после снуза.
+// A snooze expires on its own schedule and announces nothing, so we set an
+// alarm — otherwise the rule would stay disabled long after the pause is over.
 async function syncSnoozeAlarm() {
   const settings = await YtFocus.getSettings();
   await chrome.alarms.clear(SNOOZE_ALARM);

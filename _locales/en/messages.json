@@ -1,11 +1,11 @@
 {
   "extName": {
     "message": "Youtube Focus",
-    "description": "Название расширения"
+    "description": "Extension name"
   },
   "extDescription": {
     "message": "Removes Shorts and turns the YouTube home page from an endless feed into a showcase you cannot play videos from.",
-    "description": "Описание для магазина, до 132 символов"
+    "description": "Store description, up to 132 characters"
   },
   "tagline": {
     "message": "Less feed, zero Shorts, and only what you planned to watch."
@@ -141,7 +141,7 @@
   },
   "statePaused": {
     "message": "Paused for another $MINUTES$ min.",
-    "description": "Состояние в попапе, $MINUTES$ — целое число минут",
+    "description": "Popup state line; $MINUTES$ is a whole number of minutes",
     "placeholders": {
       "minutes": {
         "content": "$1",

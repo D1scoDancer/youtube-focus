@@ -1,10 +1,11 @@
-// Настройки Youtube Focus. Один файл на все контексты: content script, страницы
-// расширения и service worker (через importScripts). Экспорт — глобал YtFocus.
+// Youtube Focus settings. One file for every context: the content script, the
+// extension pages and the service worker (via importScripts). Exported as the
+// YtFocus global.
 (function (scope) {
   'use strict';
 
-  // Языки, на которые переведён интерфейс. Подписи — самоназвания, их переводить
-  // не нужно. Ключи совпадают с папками в _locales/.
+  // Languages the interface is translated into. The labels are endonyms and are
+  // deliberately left untranslated. Keys match the folders under _locales/.
   const LANGUAGES = [
     ['en', 'English'],
     ['ru', 'Русский'],
@@ -24,18 +25,18 @@
 
   const DEFAULTS = {
     enabled: true,
-    language: 'auto', // 'auto' — как в браузере, иначе код из LANGUAGES
-    homeMode: 'showcase', // 'showcase' — лента видна, клики мёртвые; 'redirect' — уход на план
+    language: 'auto', // 'auto' follows the browser, otherwise a code from LANGUAGES
+    homeMode: 'showcase', // 'showcase' keeps the feed but kills clicks; 'redirect' leaves for the plan
     plannedUrl: 'https://www.youtube.com/playlist?list=WL',
-    shortsMode: 'block', // 'block' — заглушка при переходе; 'hide' — только прятать
+    shortsMode: 'block', // 'block' shows a stub on navigation; 'hide' only hides them
     showToast: true,
     hideWatchSidebar: false,
     hideComments: false,
-    snoozeUntil: 0, // до этого времени расширение не вмешивается
+    snoozeUntil: 0, // the extension stays out of the way until this timestamp
   };
 
-  // Адрес плана должен вести на YouTube и иметь непустой путь, иначе
-  // режим redirect зациклит главную саму на себя.
+  // The plan address must point to YouTube and carry a non-empty path, otherwise
+  // redirect mode would loop the home page onto itself.
   function normalizePlannedUrl(value) {
     try {
       const url = new URL(String(value));
@@ -43,7 +44,7 @@
       const hasPath = url.pathname && url.pathname !== '/';
       if (isYoutube && hasPath && /^https?:$/.test(url.protocol)) return url.href;
     } catch (err) {
-      /* невалидный URL — падаем на дефолт */
+      /* invalid URL — fall back to the default */
     }
     return DEFAULTS.plannedUrl;
   }
@@ -71,7 +72,7 @@
     await chrome.storage.sync.set(patch);
   }
 
-  // Пауза: расширение выключено целиком или включён временный snooze из попапа.
+  // Paused: either switched off entirely or snoozed for a while from the popup.
   function isPaused(settings) {
     if (!settings) return true;
     if (!settings.enabled) return true;

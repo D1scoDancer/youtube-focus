@@ -1,6 +1,6 @@
-// Переводы. По умолчанию язык берётся из Chrome через chrome.i18n, но в
-// настройках его можно задать вручную — тогда нужный messages.json читается
-// напрямую и подменяет штатный словарь.
+// Translations. By default the language comes from Chrome through chrome.i18n,
+// but it can be picked manually in the settings — the matching messages.json is
+// then read directly and shadows the built-in dictionary.
 (function (scope) {
   'use strict';
 
@@ -25,12 +25,12 @@
       const response = await fetch(url);
       overrides = await response.json();
     } catch (err) {
-      console.error('[Youtube Focus] не удалось загрузить язык', language, err);
+      console.error('[Youtube Focus] could not load the language', language, err);
     }
   }
 
-  // Подстановка вида $MINUTES$ описана в messages.json полем placeholders,
-  // где content ссылается на аргумент как $1.
+  // A substitution such as $MINUTES$ is declared in messages.json through the
+  // placeholders field, whose content refers to an argument as $1.
   function expand(entry, substitutions) {
     let text = entry.message;
     for (const [name, meta] of Object.entries(entry.placeholders || {})) {
@@ -80,7 +80,7 @@
     ready,
     t,
     translate,
-    // Язык сменили в настройках — перечитать словарь и перерисовать страницу.
+    // The language changed in the settings: reread the dictionary and redraw.
     async reload() {
       await loadOverrides();
       if (isExtensionPage) translate(document);

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Сборка zip-пакета для Chrome Web Store."""
+"""Builds the zip package for the Chrome Web Store."""
 
 import json
 import pathlib
@@ -33,7 +33,7 @@ def main():
 
     print(out.relative_to(ROOT))
     with zipfile.ZipFile(out) as archive:
-        print(f'{len(archive.namelist())} файлов, {out.stat().st_size // 1024} КБ')
+        print(f'{len(archive.namelist())} files, {out.stat().st_size // 1024} KB')
 
 
 if __name__ == '__main__':

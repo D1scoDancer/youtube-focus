@@ -1,78 +1,100 @@
 # Youtube Focus
 
-Расширение для Chrome, которое убирает из YouTube две главные ловушки внимания:
-бесконечную ленту рекомендаций и Shorts.
+A Chrome extension that removes the two biggest attention traps from YouTube:
+the endless recommendation feed and Shorts.
 
-## Что делает
+## What it does
 
-**Главная страница** — один из двух режимов (переключается в настройках):
+**The home page** works in one of two modes (switched in the settings):
 
-- **Витрина без запуска** (по умолчанию). Лента видна, но открыть из неё видео
-  нельзя ничем: ни кликом, ни средним кликом, ни через правый клик → «Открыть в
-  новой вкладке» — у карточек на главной снимается сам `href`, поэтому в
-  контекстном меню просто нет пункта про ссылку. При этом штатная кнопка YouTube
-  «Смотреть позже» (часики на превью) работает — ею и пополняется план. Ссылки
-  на каналы тоже живые: уход на канал это осознанный выбор, а не залипание.
-- **Сразу уходить на план.** `youtube.com` заменяется на плейлист
-  «Смотреть позже» (или любой другой адрес из настроек).
+- **Showcase without playback** (default). The feed stays visible, but nothing
+  opens a video from it: not a click, not a middle click, not right click →
+  "Open in a new tab" — cards on the home page have their `href` stripped, so
+  the context menu has no link entry at all. The native Watch later button on
+  the thumbnail keeps working, and that is how the plan gets filled. Channel
+  links stay alive too: visiting a channel is a deliberate choice, not feed
+  drift.
+- **Go straight to the plan.** `youtube.com` is replaced with the Watch later
+  playlist, or any other address you set.
 
-**Shorts** вырезаются из ленты, поиска, подписок, сайдбара, левого меню и
-вкладок канала. Переход на `/shorts/…` перехватывается и показывает заглушку —
-как при прямом заходе по ссылке, так и при внутренней навигации YouTube.
+**Shorts** are cut out of the feed, search, subscriptions, the sidebar, the left
+menu and channel tabs. Navigating to `/shorts/…` is intercepted and shows a
+stub — both for a direct link and for navigation inside the YouTube SPA.
 
-**Страница видео** — по желанию скрывает правый столбец рекомендаций (вместе с
-конечными заставками поверх плеера) и блок комментариев. Оба тумблера по
-умолчанию выключены. Плеер при этом не двигается: сайдбар скрывается через
-`visibility`, поэтому его место остаётся занятым, а под исчезающий скроллбар
-резервируется ширина.
+**The video page** can optionally hide the recommendation column on the right
+(along with the end screens on top of the player) and the comments section. Both
+switches are off by default. The player does not move: the sidebar is hidden
+with `visibility`, so its box keeps its place, and a gutter is reserved for the
+scrollbar that would otherwise disappear.
 
-**План** — это родной плейлист YouTube «Смотреть позже». Расширение ничего не
-хранит у себя и никуда не ходит по сети: список остаётся вашим и доступен с
-телефона и телевизора.
+**The plan** is YouTube's own Watch later playlist. The extension stores nothing
+of its own and makes no network requests, so the list stays yours and remains
+available on your phone and TV.
 
-## Языки
+## Languages
 
-Интерфейс переведён на 14 языков: английский, русский, украинский, испанский,
-португальский (Бразилия), французский, немецкий, итальянский, польский,
-турецкий, японский, корейский, китайский (упрощённый) и хинди. По умолчанию язык
-берётся из настроек Chrome, но в настройках расширения его можно выбрать вручную
-— тогда нужный `_locales/<язык>/messages.json` читается напрямую и подменяет
-штатный словарь. Смена применяется сразу, без перезагрузки страницы.
+The interface is translated into 14 languages: English, Russian, Ukrainian,
+Spanish, Portuguese (Brazil), French, German, Italian, Polish, Turkish,
+Japanese, Korean, Simplified Chinese and Hindi. By default the language follows
+Chrome, but it can be picked manually in the settings — the matching
+`_locales/<language>/messages.json` is then read directly and shadows the
+built-in dictionary. The change applies immediately, without a reload.
 
-## Установка
+## Installing
 
-1. `chrome://extensions` → включить «Режим разработчика».
-2. «Загрузить распакованное расширение» → выбрать папку этого репозитория.
-3. Иконка расширения в панели — быстрая пауза и ссылка на план; «Настройки» —
-   все тумблеры.
+1. `chrome://extensions` → turn on **Developer mode**.
+2. **Load unpacked** → pick this repository's folder.
+3. The toolbar icon gives you a quick pause and a link to the plan; **Settings**
+   holds every switch.
 
-## Как это устроено
+Ready-made archives live under
+[Releases](https://github.com/D1scoDancer/youtube-focus/releases).
 
-| Файл | Зачем |
+## How it is put together
+
+| File | Purpose |
 | --- | --- |
-| `src/common/settings.js` | дефолты и обёртки над `chrome.storage.sync` |
-| `src/common/nav.js` | отслеживание SPA-навигации YouTube |
-| `src/content/guard.js` | режимы главной, перехват кликов, блок Shorts |
-| `src/content/sweep.js` | `MutationObserver`, добивающий Shorts после перерисовок |
-| `src/content/hide.css` | все правила скрытия |
-| `src/background/worker.js` | дефолты при установке, включение DNR-правила |
-| `src/rules/shorts.json` | правило `declarativeNetRequest` для прямых заходов |
+| `src/common/settings.js` | defaults and wrappers around `chrome.storage.sync` |
+| `src/common/i18n.js` | translations, including the manual language override |
+| `src/common/nav.js` | tracking navigation inside the YouTube SPA |
+| `src/content/guard.js` | home page modes, click interception, the Shorts guard |
+| `src/content/sweep.js` | the `MutationObserver` that finishes off Shorts after redraws |
+| `src/content/hide.css` | every hiding rule |
+| `src/background/worker.js` | defaults on install, switching the DNR rule |
+| `src/rules/shorts.json` | the `declarativeNetRequest` rule for direct visits |
 
-Правила скрытия написаны через `html:not(.ytfocus-off)`: пока настройки не
-прочитаны, класса нет, поэтому Shorts скрыты уже на первой отрисовке и не
-успевают мигнуть. Пауза и выключение вешают `.ytfocus-off`, и страница
-возвращается к исходному виду.
+The hiding rules are written as `html:not(.ytfocus-off)`: the class is absent
+until the settings are read, so Shorts are hidden on the very first paint and
+never flash. Pausing or switching the extension off adds `.ytfocus-off` and the
+page returns to its original state.
 
-## Если Shorts вернулись
+## If Shorts come back
 
-YouTube регулярно переименовывает свои веб-компоненты. Чинить нужно в двух
-местах, они специально помечены комментариями:
+YouTube renames its web components regularly. Two places need fixing, both
+marked with comments:
 
-- селекторы в `src/content/hide.css`;
-- `CARD_SELECTORS` и `SHELF_SELECTORS` в `src/content/sweep.js`.
+- the selectors in `src/content/hide.css`;
+- `CARD_SELECTORS` and `SHELF_SELECTORS` in `src/content/sweep.js`.
 
-Перехват кликов от разметки не зависит — он смотрит только на `href`.
+Click interception does not depend on the markup — it only looks at `href` and
+at the card container.
 
-## Лицензия
+## Packaging
+
+```bash
+./scripts/package.sh
+```
+
+Writes `dist/youtube-focus-<version>.zip` with `manifest.json` at the archive
+root, which is what the Chrome Web Store expects. See
+[docs/chrome-web-store.md](docs/chrome-web-store.md) for the submission
+checklist.
+
+## Privacy
+
+Nothing is collected, stored remotely or sent anywhere: there is not a single
+outbound network request in the code. See [PRIVACY.md](PRIVACY.md).
+
+## License
 
 MIT.

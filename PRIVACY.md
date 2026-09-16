@@ -1,45 +1,46 @@
-# Политика конфиденциальности Youtube Focus
+# Youtube Focus privacy policy
 
-Последнее обновление: 16 сентября 2026.
+Last updated: 16 September 2026.
 
-## Коротко
+## In short
 
-Расширение не собирает, не хранит у себя и не передаёт никому никаких данных о
-пользователе. Никаких серверов у него нет.
+The extension collects nothing, stores nothing of its own anywhere but your
+browser, and sends nothing to anyone. It has no servers.
 
-## Что расширение хранит
+## What the extension stores
 
-Единственное, что сохраняется, — ваши собственные настройки: режим главной
-страницы, адрес плана, режим Shorts и тумблеры скрытия блоков на странице видео.
-Они лежат в `chrome.storage.sync`, то есть в вашем браузере, и синхронизируются
-между вашими устройствами силами самого Chrome. Разработчик доступа к ним не
-имеет.
+The only thing saved is your own settings: the home page mode, the plan address,
+the Shorts mode, the interface language and the switches for the blocks on the
+video page. They live in `chrome.storage.sync`, that is, in your browser, and
+Chrome itself syncs them between your devices. The developer has no access to
+them.
 
-## Чего расширение не делает
+## What the extension does not do
 
-- не отправляет ни одного сетевого запроса на сторонние серверы — в коде нет ни
-  `fetch`, ни `XMLHttpRequest`, ни WebSocket;
-- не собирает историю просмотров, поисковые запросы и содержимое страниц;
-- не использует аналитику, счётчики и рекламные сети;
-- не читает и не изменяет ваш аккаунт Google или YouTube;
-- не продаёт и не передаёт данные третьим лицам, потому что их у него нет.
+- it makes no network requests to third-party servers — there is no `fetch`, no
+  `XMLHttpRequest` and no WebSocket in the code;
+- it does not collect your watch history, your searches or page contents;
+- it uses no analytics, no counters and no ad networks;
+- it neither reads nor modifies your Google or YouTube account;
+- it does not sell or share data with third parties, because it has none.
 
-## Зачем нужны запрошенные разрешения
+## Why the requested permissions are needed
 
-- **Доступ к сайту youtube.com** — чтобы скрывать Shorts и блокировать переход к
-  видео из ленты. Работа идёт только на страницах YouTube и только с их
-  содержимым в вашем браузере.
-- **`storage`** — хранение перечисленных выше настроек.
-- **`declarativeNetRequest`** — статическое правило, которое перехватывает
-  переход на `/shorts/`. Правило описано декларативно в файле
-  `src/rules/shorts.json`; расширение не видит и не логирует ваш трафик.
-- **`alarms`** — единственный таймер, который возвращает блокировки после
-  временной паузы.
+- **Access to youtube.com** — to hide Shorts and block opening videos from the
+  feed. All of it happens on YouTube pages only, and only with the content
+  already in your browser.
+- **`storage`** — storing the settings listed above.
+- **`declarativeNetRequest`** — a single static rule that intercepts navigation
+  to `/shorts/`. The rule is declared in `src/rules/shorts.json`; the extension
+  neither sees nor logs your traffic.
+- **`alarms`** — the one timer that restores the blocking after a temporary
+  pause.
 
-## Открытый исходный код
+## Open source
 
-Весь код открыт и проверяем: https://github.com/D1scoDancer/youtube-focus
+The whole source is open and auditable:
+https://github.com/D1scoDancer/youtube-focus
 
-## Вопросы
+## Questions
 
-Задавайте их через issues репозитория.
+Please raise them as issues in the repository.

@@ -1,21 +1,21 @@
 /*
- * Правила скрытия Youtube Focus.
+ * Youtube Focus hiding rules.
  *
- * Все селекторы завязаны на html:not(.ytfocus-off): до чтения настроек класса
- * .ytfocus-off нет, поэтому Shorts скрыты уже на первой отрисовке и не мигают.
- * Когда расширение выключено или стоит на паузе, guard.js вешает .ytfocus-off
- * и всё возвращается к исходному виду.
+ * Every selector hangs off html:not(.ytfocus-off): the class is absent until the
+ * settings are read, so Shorts are hidden on the very first paint and never
+ * flash. When the extension is switched off or paused, guard.js adds
+ * .ytfocus-off and the page returns to its original state.
  *
- * ЕСЛИ SHORTS ВЕРНУЛИСЬ НА СТРАНИЦУ — чинить селекторы здесь и в
- * SHORTS_SELECTORS из src/content/sweep.js.
+ * IF SHORTS ARE BACK ON THE PAGE — fix the selectors here and in
+ * CARD_SELECTORS / SHELF_SELECTORS in src/content/sweep.js.
  */
 
-/* --- пока настройки не прочитаны: не показываем ленту главной --- */
+/* --- until the settings are read: keep the home feed off screen --- */
 html.ytfocus-boot ytd-browse[page-subtype="home"] {
   visibility: hidden !important;
 }
 
-/* --- Shorts: полки и секции --- */
+/* --- Shorts: shelves and sections --- */
 html:not(.ytfocus-off) ytd-reel-shelf-renderer,
 html:not(.ytfocus-off) ytd-rich-shelf-renderer[is-shorts],
 html:not(.ytfocus-off) ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[is-shorts]),
@@ -24,7 +24,7 @@ html:not(.ytfocus-off) grid-shelf-view-model:has(a[href^="/shorts/"]) {
   display: none !important;
 }
 
-/* --- Shorts: отдельные карточки в ленте, поиске, подписках, сайдбаре --- */
+/* --- Shorts: single cards in the feed, search, subscriptions, sidebar --- */
 html:not(.ytfocus-off) ytd-reel-item-renderer,
 html:not(.ytfocus-off) ytm-shorts-lockup-view-model,
 html:not(.ytfocus-off) ytm-shorts-lockup-view-model-v2,
@@ -36,64 +36,65 @@ html:not(.ytfocus-off) yt-lockup-view-model:has(a[href^="/shorts/"]) {
   display: none !important;
 }
 
-/* --- Shorts: пункт в левом меню (href, а не подпись — не зависит от языка) --- */
+/* --- Shorts: the left menu entry (matched by href, so it is language-agnostic) --- */
 html:not(.ytfocus-off) ytd-guide-entry-renderer:has(a[href^="/shorts"]),
 html:not(.ytfocus-off) ytd-mini-guide-entry-renderer:has(a[href^="/shorts"]) {
   display: none !important;
 }
 
-/* --- Shorts: вкладка на странице канала --- */
+/* --- Shorts: the tab on a channel page --- */
 html:not(.ytfocus-off) tp-yt-paper-tab:has(a[href$="/shorts"]),
 html:not(.ytfocus-off) yt-tab-shape[tab-title="Shorts"],
 html:not(.ytfocus-off) yt-tab-group-shape yt-tab-shape:has(a[href$="/shorts"]) {
   display: none !important;
 }
 
-/* --- добито из sweep.js --- */
+/* --- finished off from sweep.js --- */
 html:not(.ytfocus-off) .ytfocus-hidden {
   display: none !important;
 }
 
-/* --- витрина: гасим автопревью при наведении, оно само по себе просмотр --- */
+/* --- showcase: kill the hover autopreview, it is watching in its own right --- */
 html.ytfocus-showcase ytd-video-preview,
 html.ytfocus-showcase #video-preview,
 html.ytfocus-showcase ytd-thumbnail-overlay-loading-preview-renderer {
   display: none !important;
 }
 
-/* --- витрина: курсор не обещает перехода там, где его нет --- */
+/* --- showcase: the cursor should not promise a navigation that will not happen --- */
 html.ytfocus-showcase ytd-rich-item-renderer a#thumbnail,
 html.ytfocus-showcase ytd-rich-item-renderer a#video-title-link {
   cursor: default !important;
 }
 
-/* --- /watch: правый столбец рекомендаций (по умолчанию выключено) --- */
-/* Именно visibility, а не display: коробка сайдбара остаётся в потоке, поэтому
-   плеер не меняет ни размер, ни положение — справа просто пустое место. */
+/* --- /watch: the recommendation column on the right (off by default) --- */
+/* visibility rather than display on purpose: the sidebar box stays in the flow,
+   so the player keeps both its size and its position — the space next to it is
+   simply left empty. */
 html.ytfocus-no-sidebar #secondary.ytd-watch-flexy,
 html.ytfocus-no-sidebar #related.ytd-watch-flexy {
   visibility: hidden !important;
 }
 
-/* конечные заставки с рекомендациями поверх видео */
+/* end screens with recommendations on top of the video */
 html.ytfocus-no-sidebar .ytp-endscreen-content,
 html.ytfocus-no-sidebar .ytp-ce-element {
   display: none !important;
 }
 
-/* --- /watch: комментарии (по умолчанию выключено) --- */
+/* --- /watch: comments (off by default) --- */
 html.ytfocus-no-comments ytd-comments#comments {
   display: none !important;
 }
 
-/* Без комментариев страница часто перестаёт прокручиваться, вертикальный
-   скроллбар исчезает и всё содержимое уезжает вбок на его ширину. Резервируем
-   место под него, чтобы плеер остался ровно там же, где был. */
+/* Without comments the page often stops scrolling, the vertical scrollbar
+   disappears and everything shifts sideways by its width. Reserve the gutter so
+   the player stays exactly where it was. */
 html.ytfocus-no-comments {
   scrollbar-gutter: stable;
 }
 
-/* --- тост при мёртвом клике --- */
+/* --- the toast shown on a dead click --- */
 #ytfocus-toast {
   position: fixed;
   left: 50%;

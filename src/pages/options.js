@@ -48,14 +48,19 @@
     }, 4000);
   }
 
+  async function reloadUi() {
+    await YtFocusI18n.reload();
+    render(await YtFocus.getSettings());
+  }
+
   await YtFocusI18n.ready;
   render(await YtFocus.getSettings());
 
-  // Язык применяем сразу, не дожидаясь «Сохранить»: иначе непонятно, что выбрал.
+  // The language applies immediately instead of waiting for Save: otherwise it
+  // is not obvious which option is in effect.
   $('language').addEventListener('change', async () => {
     await YtFocus.setSettings({ language: $('language').value });
-    await YtFocusI18n.reload();
-    render(await YtFocus.getSettings());
+    await reloadUi();
   });
 
   $('save').addEventListener('click', async () => {
@@ -65,9 +70,9 @@
       homeMode: radioValue('homeMode'),
       shortsMode: radioValue('shortsMode'),
       plannedUrl: planned,
+      language: $('language').value,
     };
     for (const key of CHECKBOXES) patch[key] = $(key).checked;
-    patch.language = $('language').value;
 
     await YtFocus.setSettings(patch);
     $('plannedUrl').value = planned;
@@ -81,15 +86,8 @@
 
   $('reset').addEventListener('click', async () => {
     await YtFocus.setSettings(YtFocus.DEFAULTS);
-    await YtFocusI18n.ready;
-  render(await YtFocus.getSettings());
-
-  // Язык применяем сразу, не дожидаясь «Сохранить»: иначе непонятно, что выбрал.
-  $('language').addEventListener('change', async () => {
-    await YtFocus.setSettings({ language: $('language').value });
-    await YtFocusI18n.reload();
-    render(await YtFocus.getSettings());
-  });
+    // Defaults may change the language back, so the dictionary is reloaded too.
+    await reloadUi();
     say(YtFocusI18n.t('statusReset'));
   });
 })();

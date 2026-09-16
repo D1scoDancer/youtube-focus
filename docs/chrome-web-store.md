@@ -1,52 +1,56 @@
-# Публикация в Chrome Web Store
+# Publishing to the Chrome Web Store
 
-Шпаргалка на случай повторной подачи: готовые тексты для карточки, обоснования
-разрешений и порядок действий.
+A crib sheet for the next submission: ready-made listing copy, permission
+justifications and the order of operations.
 
-## Сборка пакета
+## Building the package
 
 ```bash
 ./scripts/package.sh
 ```
 
-Скрипт кладёт `dist/youtube-focus-<версия>.zip` с `manifest.json` в корне архива
-— именно такой формат ждёт магазин. Перед каждой новой загрузкой нужно поднять
-`version` в `manifest.json`: залить дважды один и тот же номер магазин не даст.
+The script writes `dist/youtube-focus-<version>.zip` with `manifest.json` at the
+archive root, which is the shape the store expects. Bump `version` in
+`manifest.json` before every upload: the store refuses the same number twice.
 
-## Порядок действий
+## Order of operations
 
-1. Зарегистрировать аккаунт разработчика на
-   https://chrome.google.com/webstore/devconsole — разовый взнос $5.
-2. «New item» → загрузить zip.
-3. Заполнить карточку (тексты ниже) и вкладку «Privacy practices» (обоснования
-   ниже).
-4. Приложить скриншоты: от 1 до 5 штук, 1280×800 или 640×400, PNG или JPEG.
-5. Отправить на проверку. Обычно занимает от нескольких часов до нескольких
-   дней; расширения, которые меняют поведение чужого сайта, проверяют дольше.
+1. Register a developer account at
+   https://chrome.google.com/webstore/devconsole — a one-off $5 fee.
+2. "New item" → upload the zip.
+3. Fill in the listing (copy below) and the "Privacy practices" tab
+   (justifications below).
+4. Attach screenshots: between one and five, 1280×800 or 640×400, PNG or JPEG.
+5. Submit for review. It usually takes from a few hours to a few days;
+   extensions that change the behaviour of someone else's site are reviewed
+   longer.
 
-## Языки
+## Languages
 
-Интерфейс расширения переведён на 14 языков (`_locales/`): en, ru, uk, es, pt_BR,
-fr, de, it, pl, tr, ja, ko, zh_CN, hi. Язык по умолчанию — английский, его
-магазин и показывает всем, для кого нет перевода карточки.
+The extension's interface is translated into 14 languages (`_locales/`): en, ru,
+uk, es, pt_BR, fr, de, it, pl, tr, ja, ko, zh_CN, hi. The default is English,
+which the store also shows to everyone whose language the listing is not
+translated into.
 
-Название и краткое описание магазин берёт прямо из `_locales/<язык>/messages.json`
-(ключи `extName` и `extDescription`), поэтому карточка переводится сама. Подробное
-описание переводится вручную во вкладке локализации консоли разработчика.
+The store takes the name and the short description straight from
+`_locales/<language>/messages.json` (the `extName` and `extDescription` keys), so
+the listing translates itself. The detailed description is translated by hand on
+the localisation tab of the developer console.
 
-Арабского и иврита в наборе нет намеренно: страницы расширения свёрстаны слева
-направо, и без отдельной поддержки RTL перевод выглядел бы сломанным.
+Arabic and Hebrew are deliberately absent: the extension's pages are laid out
+left to right, and without separate RTL support the translation would look
+broken.
 
-## Тексты карточки
+## Listing copy
 
-Основной язык карточки — английский.
+The primary listing language is English.
 
-**Краткое описание** (до 132 символов):
+**Short description** (up to 132 characters):
 
 > Removes Shorts and turns the YouTube home page from an endless feed into a
 > showcase you cannot play videos from.
 
-**Подробное описание:**
+**Detailed description:**
 
 > Youtube Focus removes the two biggest attention traps from YouTube: the
 > endless recommendation feed and Shorts.
@@ -75,82 +79,51 @@ fr, de, it, pl, tr, ja, ko, zh_CN, hi. Язык по умолчанию — ан
 > No analytics, no network requests, no data collection. The source code is
 > open: https://github.com/D1scoDancer/youtube-focus
 
-## Тексты карточки на русском
+**Category:** Productivity.
 
-**Краткое описание** (до 132 символов):
+## Privacy practices tab
 
-> Убирает Shorts и превращает главную страницу YouTube из бесконечной ленты в
-> витрину без запуска видео.
+**Single purpose:**
 
-**Подробное описание:**
+> The extension removes the elements of YouTube pages that drive uncontrolled
+> watching: the recommendation feed on the home page and short-form Shorts
+> videos.
 
-> Youtube Focus убирает из YouTube две главные ловушки внимания: бесконечную
-> ленту рекомендаций и Shorts.
->
-> ГЛАВНАЯ СТРАНИЦА — на выбор один из двух режимов.
->
-> • Витрина без запуска. Лента видна, но открыть из неё видео нельзя ничем: ни
-> кликом, ни средним кликом, ни через «Открыть в новой вкладке». При этом
-> штатная кнопка YouTube «Смотреть позже» на превью работает — ею и пополняется
-> список того, что вы посмотрите осознанно.
-> • Сразу уходить к запланированному. Главная заменяется плейлистом «Смотреть
-> позже» или любым другим адресом на ваш выбор.
->
-> SHORTS вырезаются из ленты, поиска, подписок, бокового столбца, левого меню и
-> вкладок канала. Переход на короткое видео перехватывается и показывает
-> заглушку — и по прямой ссылке, и при переходе внутри YouTube.
->
-> СТРАНИЦА ВИДЕО — по желанию скрывает столбец рекомендаций справа вместе с
-> конечными заставками поверх плеера, а также блок комментариев. Плеер при этом
-> остаётся ровно на своём месте.
->
-> Список запланированного — это родной плейлист YouTube «Смотреть позже».
-> Расширение ничего не хранит у себя: список остаётся вашим и доступен с
-> телефона и телевизора.
->
-> Никакой аналитики, никаких сетевых запросов, никакого сбора данных. Исходный
-> код открыт: https://github.com/D1scoDancer/youtube-focus
+**Permission justifications:**
 
-**Категория:** Productivity (Продуктивность).
+- `storage` — stores the user's settings (home page mode, plan address, Shorts
+  mode, interface language, the switches for hiding blocks). Nothing but
+  settings.
+- `declarativeNetRequest` — one static declarative rule redirecting navigation
+  to youtube.com/shorts/ to the extension's own stub page. Traffic is neither
+  read nor logged.
+- `alarms` — a single timer that restores the blocking after a pause the user
+  turned on.
+- Access to `*://*.youtube.com/*` — the extension works on YouTube only: it
+  hides Shorts and blocks opening videos from the feed. No other site is
+  touched.
 
-## Вкладка Privacy practices
+**Data collection:** nothing is collected under any category of the form.
 
-**Единственное назначение (single purpose):**
-
-> Расширение убирает со страниц YouTube элементы, провоцирующие бесконтрольный
-> просмотр: ленту рекомендаций на главной и короткие видео Shorts.
-
-**Обоснования разрешений:**
-
-- `storage` — хранит настройки пользователя (режим главной страницы, адрес
-  плана, режим Shorts, тумблеры скрытия блоков). Ничего, кроме настроек.
-- `declarativeNetRequest` — одно статическое декларативное правило,
-  перенаправляющее переход на youtube.com/shorts/ на страницу-заглушку
-  расширения. Трафик не читается и не логируется.
-- `alarms` — один таймер, возвращающий блокировки после временной паузы,
-  включённой пользователем.
-- Доступ к `*://*.youtube.com/*` — расширение работает только на YouTube:
-  скрывает Shorts и блокирует запуск видео из ленты. Других сайтов не касается.
-
-**Сбор данных:** не собирается ничего ни по одной из категорий формы.
-
-**Политика конфиденциальности:**
+**Privacy policy:**
 https://github.com/D1scoDancer/youtube-focus/blob/main/PRIVACY.md
 
-## Скриншоты
+## Screenshots
 
-Снимать нужно рабочие экраны расширения. Что показать:
+They have to show the extension actually working. Worth capturing:
 
-1. Главная в режиме витрины с всплывшей подсказкой после клика по видео.
-2. Страница настроек.
-3. Заглушка при переходе на Shorts.
-4. Страница видео со скрытыми рекомендациями и комментариями.
+1. The home page in showcase mode with the hint that pops up after a click on a
+   video.
+2. The settings page.
+3. The stub shown when navigating to Shorts.
+4. A video page with the recommendations and comments hidden.
 
-Перед съёмкой стоит убедиться, что в кадр не попали личные данные: имя аккаунта,
-аватар, содержимое ваших подписок и истории просмотров.
+Before capturing, make sure no personal data is in frame: the account name, the
+avatar, the contents of your subscriptions and watch history.
 
-## Что учесть при проверке
+## What to expect from the review
 
-Магазин придирчив к названиям, использующим чужие торговые марки. Если подача
-вернётся с претензией к слову «Youtube» в названии, достаточно поменять поле
-`name` в `manifest.json` — на работу расширения это не влияет.
+The store is picky about names that use someone else's trademark. If the
+submission comes back complaining about the word "Youtube" in the name, changing
+the `extName` key in `_locales/*/messages.json` is enough — it does not affect
+how the extension works.

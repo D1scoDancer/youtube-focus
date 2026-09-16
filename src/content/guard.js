@@ -1,13 +1,13 @@
-// Главный content script: решает, что делать с текущей страницей YouTube.
-// Запускается на document_start, до первой отрисовки.
+// The main content script: decides what to do with the current YouTube page.
+// Runs at document_start, before anything is painted.
 (function () {
   'use strict';
 
   const root = document.documentElement;
   const BLOCKED_PAGE = chrome.runtime.getURL('src/pages/blocked.html');
 
-  // Пока настройки не прочитаны, прячем ленту главной: иначе в режиме redirect
-  // она успевает мигнуть перед уходом на план.
+  // Hide the home feed until the settings are read: in redirect mode it would
+  // otherwise flash on screen before we leave for the plan.
   root.classList.add('ytfocus-boot');
   const bootTimer = setTimeout(() => root.classList.remove('ytfocus-boot'), 3000);
 
@@ -25,14 +25,14 @@
     return /(^|\.)youtube\.com$/.test(hostname);
   }
 
-  // Ссылка, которая запускает видео. Каналы (/@name, /channel/...) намеренно
-  // не трогаем: уход на канал — осознанный выбор, а не залипание в ленте.
+  // A link that starts a video. Channels (/@name, /channel/...) are deliberately
+  // left alone: visiting a channel is a deliberate choice, not feed drift.
   function isVideoLink(anchor) {
     if (!anchor || !anchor.getAttribute) return false;
-    // У карточек на главной href снят (см. defuseLinks в sweep.js), адрес лежит
-    // в data-атрибуте. Без этого запаса перехватчик перестал бы узнавать ссылку,
-    // а YouTube всё равно открыл бы видео — он ходит по своим внутренним данным,
-    // а не по href.
+    // Cards on the home page have their href stripped (see defuseLinks in
+    // sweep.js), so the address lives in a data attribute. Without this fallback
+    // the interceptor would stop recognising the link while YouTube would still
+    // open the video: its router follows internal component data, not href.
     const href = anchor.getAttribute('href') || (anchor.dataset && anchor.dataset.ytfocusHref);
     if (!href) return false;
     let url;
@@ -45,8 +45,8 @@
     return url.pathname === '/watch' || url.pathname.startsWith('/shorts/');
   }
 
-  // Элементы управления на карточке, которые должны остаться живыми:
-  // прежде всего «Смотреть позже» — именно ею пополняется план.
+  // Card controls that must stay alive — above all Watch later, which is how
+  // the plan gets filled.
   const SAFE_CONTROLS = [
     'ytd-thumbnail-overlay-toggle-button-renderer',
     'ytd-thumbnail-overlay-now-playing-renderer',
@@ -58,9 +58,10 @@
     '[role="button"]',
   ].join(', ');
 
-  // Карточка видео целиком. Ссылкой размечено далеко не всё: строка с
-  // просмотрами и датой лежит вне <a>, а переход по ней делает обработчик на
-  // самой карточке. Поэтому в витрине глушится любой клик внутри карточки.
+  // The whole video card. Far from everything is marked up as a link: the line
+  // with the view count and date sits outside the <a>, and a click there is
+  // handled by the card itself. So showcase mode swallows every click inside a
+  // card.
   const VIDEO_CARDS = [
     'ytd-rich-item-renderer',
     'ytd-rich-grid-media',
@@ -74,14 +75,14 @@
     return el.matches && el.matches(VIDEO_CARDS);
   }
 
-  // Настоящая кнопка, а не контейнер: обёртку, внутри которой лежит карточка,
-  // YouTube тоже иногда помечает role="button".
+  // A real button rather than a container: YouTube sometimes marks a wrapper
+  // holding the whole card with role="button" as well.
   function isSafeControl(el) {
     if (!el.matches || !el.matches(SAFE_CONTROLS)) return false;
     return !el.querySelector(VIDEO_CARDS);
   }
 
-  // Канал, автор, аватар — эти ссылки остаются рабочими.
+  // Channel, author, avatar — these links keep working.
   function isChannelLink(anchor) {
     if (!anchor || !anchor.getAttribute) return false;
     const href = anchor.getAttribute('href') || '';
@@ -102,14 +103,14 @@
     if (settings.homeMode !== 'showcase') return false;
     if (!isHome()) return false;
 
-    // Кнопка карточки («Смотреть позже», меню «…») — пропускаем.
+    // A card button (Watch later, the ... menu) — let it through.
     if (findInPath(event, isSafeControl)) return false;
 
     const anchor = findInPath(event, (el) => el.tagName === 'A');
     if (anchor && isChannelLink(anchor)) return false;
     if (anchor && isVideoLink(anchor)) return true;
 
-    // Клик мимо ссылки, но внутри карточки: просмотры, дата, пустое место.
+    // A click that missed the link but landed in a card: views, date, blank space.
     return Boolean(findInPath(event, isCard));
   }
 
@@ -120,7 +121,7 @@
   }
 
   function onPointer(event) {
-    // Средний клик и Ctrl+клик открывают новую вкладку — их тоже гасим.
+    // A middle click or Ctrl+click opens a new tab — swallow those too.
     if (event.type === 'mousedown' && event.button === 2) return;
     if (!shouldBlockInteraction(event)) return;
     swallow(event);
@@ -128,8 +129,8 @@
   }
 
   function onKeydown(event) {
-    // Только Enter: пробел на сфокусированной ссылке ничего не открывает,
-    // зато прокручивает страницу — глушить его нельзя.
+    // Enter only: Space opens nothing on a focused link but does scroll the
+    // page, so it must not be swallowed.
     if (event.key !== 'Enter') return;
     if (!shouldBlockInteraction(event)) return;
     swallow(event);
@@ -157,9 +158,9 @@
     toastTimer = setTimeout(() => toast.classList.remove('ytfocus-toast-visible'), 3500);
   }
 
-  // Классы на <html> включают правила из hide.css. Правила написаны через
-  // html:not(.ytfocus-off), поэтому по умолчанию (до чтения настроек) действуют —
-  // Shorts не мигают на первой отрисовке.
+  // Classes on <html> switch on the rules from hide.css. Those rules are written
+  // as html:not(.ytfocus-off), so they apply by default — before the settings are
+  // read — and Shorts never flash on the first paint.
   function applyClasses() {
     const paused = YtFocus.isPaused(settings);
     root.classList.toggle('ytfocus-off', paused);
@@ -209,7 +210,7 @@
       apply();
     })
     .catch((err) => {
-      console.error('[Youtube Focus] не удалось прочитать настройки:', err);
+      console.error('[Youtube Focus] could not read the settings:', err);
       clearTimeout(bootTimer);
       root.classList.remove('ytfocus-boot');
     });

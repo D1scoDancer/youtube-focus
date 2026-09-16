@@ -1,9 +1,10 @@
-// Отслеживание навигации внутри SPA YouTube.
+// Tracking navigation inside the YouTube SPA.
 //
-// Патчить history.pushState из content script бесполезно: изолированный мир
-// имеет собственные обёртки над DOM API, и вызовы страницы туда не попадают.
-// Поэтому слушаем события, которые действительно общие (DOM-события), а сверху
-// держим дешёвый опрос location.href как страховку от смены разметки YouTube.
+// Patching history.pushState from a content script is pointless: the isolated
+// world has its own wrappers around the DOM API, so calls made by the page never
+// reach them. We therefore listen to what is genuinely shared — DOM events — and
+// keep a cheap location.href poll on top as insurance against YouTube changing
+// its internals.
 (function (scope) {
   'use strict';
 
@@ -15,7 +16,7 @@
       try {
         cb(location.href);
       } catch (err) {
-        console.error('[Youtube Focus] ошибка обработчика навигации:', err);
+        console.error('[Youtube Focus] navigation listener failed:', err);
       }
     }
   }
@@ -26,7 +27,7 @@
     emit();
   }
 
-  // Штатное событие YouTube по завершении внутреннего перехода.
+  // YouTube's own event, fired once an internal navigation is complete.
   window.addEventListener('yt-navigate-finish', check, true);
   window.addEventListener('yt-page-data-updated', check, true);
   window.addEventListener('popstate', check, true);
