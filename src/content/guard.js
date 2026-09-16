@@ -58,6 +58,36 @@
     '[role="button"]',
   ].join(', ');
 
+  // Карточка видео целиком. Ссылкой размечено далеко не всё: строка с
+  // просмотрами и датой лежит вне <a>, а переход по ней делает обработчик на
+  // самой карточке. Поэтому в витрине глушится любой клик внутри карточки.
+  const VIDEO_CARDS = [
+    'ytd-rich-item-renderer',
+    'ytd-rich-grid-media',
+    'ytd-video-renderer',
+    'ytd-grid-video-renderer',
+    'ytd-compact-video-renderer',
+    'yt-lockup-view-model',
+  ].join(', ');
+
+  function isCard(el) {
+    return el.matches && el.matches(VIDEO_CARDS);
+  }
+
+  // Настоящая кнопка, а не контейнер: обёртку, внутри которой лежит карточка,
+  // YouTube тоже иногда помечает role="button".
+  function isSafeControl(el) {
+    if (!el.matches || !el.matches(SAFE_CONTROLS)) return false;
+    return !el.querySelector(VIDEO_CARDS);
+  }
+
+  // Канал, автор, аватар — эти ссылки остаются рабочими.
+  function isChannelLink(anchor) {
+    if (!anchor || !anchor.getAttribute) return false;
+    const href = anchor.getAttribute('href') || '';
+    return /^\/(@|channel\/|c\/|user\/)/.test(href);
+  }
+
   function findInPath(event, predicate) {
     const path = typeof event.composedPath === 'function' ? event.composedPath() : [];
     for (const node of path) {
@@ -72,14 +102,15 @@
     if (settings.homeMode !== 'showcase') return false;
     if (!isHome()) return false;
 
-    const safe = findInPath(event, (el) => el.matches && el.matches(SAFE_CONTROLS));
+    // Кнопка карточки («Смотреть позже», меню «…») — пропускаем.
+    if (findInPath(event, isSafeControl)) return false;
+
     const anchor = findInPath(event, (el) => el.tagName === 'A');
-    if (!anchor || !isVideoLink(anchor)) return false;
-    // Клик пришёл в кнопку карточки («Смотреть позже», меню «…») — пропускаем.
-    // Обёртку, внутри которой лежит сама ссылка, кнопкой не считаем: YouTube
-    // иногда вешает role="button" на весь контейнер карточки.
-    if (safe && !safe.contains(anchor)) return false;
-    return true;
+    if (anchor && isChannelLink(anchor)) return false;
+    if (anchor && isVideoLink(anchor)) return true;
+
+    // Клик мимо ссылки, но внутри карточки: просмотры, дата, пустое место.
+    return Boolean(findInPath(event, isCard));
   }
 
   function swallow(event) {
