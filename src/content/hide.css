@@ -68,14 +68,11 @@ html.ytfocus-showcase ytd-rich-item-renderer a#video-title-link {
 }
 
 /* --- /watch: правый столбец рекомендаций (по умолчанию выключено) --- */
+/* Именно visibility, а не display: коробка сайдбара остаётся в потоке, поэтому
+   плеер не меняет ни размер, ни положение — справа просто пустое место. */
 html.ytfocus-no-sidebar #secondary.ytd-watch-flexy,
 html.ytfocus-no-sidebar #related.ytd-watch-flexy {
-  display: none !important;
-}
-
-/* без сайдбара плеер должен занять освободившуюся ширину, иначе справа дыра */
-html.ytfocus-no-sidebar #primary.ytd-watch-flexy {
-  max-width: none !important;
+  visibility: hidden !important;
 }
 
 /* конечные заставки с рекомендациями поверх видео */
@@ -87,6 +84,13 @@ html.ytfocus-no-sidebar .ytp-ce-element {
 /* --- /watch: комментарии (по умолчанию выключено) --- */
 html.ytfocus-no-comments ytd-comments#comments {
   display: none !important;
+}
+
+/* Без комментариев страница часто перестаёт прокручиваться, вертикальный
+   скроллбар исчезает и всё содержимое уезжает вбок на его ширину. Резервируем
+   место под него, чтобы плеер остался ровно там же, где был. */
+html.ytfocus-no-comments {
+  scrollbar-gutter: stable;
 }
 
 /* --- тост при мёртвом клике --- */

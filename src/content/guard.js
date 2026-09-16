@@ -140,6 +140,7 @@
     clearTimeout(bootTimer);
     root.classList.remove('ytfocus-boot');
     applyClasses();
+    if (globalThis.YtFocusSweep) globalThis.YtFocusSweep.schedule();
 
     if (YtFocus.isPaused(settings)) return;
 

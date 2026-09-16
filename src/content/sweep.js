@@ -27,6 +27,7 @@
   ].join(', ');
 
   const HIDDEN_CLASS = 'ytfocus-hidden';
+  const HREF_STASH = 'ytfocusHref'; // dataset-ключ, куда прячется снятый href
   let scheduled = false;
 
   function hide(element) {
@@ -34,8 +35,35 @@
     element.classList.add(HIDDEN_CLASS);
   }
 
+  // В режиме витрины перехвата клика мало: правый клик открывает меню браузера,
+  // и «Открыть ссылку в новой вкладке» уводит на видео мимо всех обработчиков —
+  // переход делает браузер, а не страница. Поэтому у карточек на главной
+  // снимается сам href: в контекстном меню просто нет пункта про ссылку, заодно
+  // отваливаются перетаскивание и «Копировать адрес ссылки».
+  //
+  // Ссылки на Shorts при этом не трогаем: по их href работает скрытие карточек,
+  // а прямой заход на /shorts/ перехватывает правило declarativeNetRequest.
+  function defuseLinks() {
+    const showcase = document.documentElement.classList.contains('ytfocus-showcase');
+
+    if (showcase) {
+      for (const link of document.querySelectorAll('a[href^="/watch"]')) {
+        link.dataset[HREF_STASH] = link.getAttribute('href');
+        link.removeAttribute('href');
+      }
+      return;
+    }
+
+    // Ушли с главной или расширение на паузе — возвращаем ссылки на место.
+    for (const link of document.querySelectorAll('a[data-ytfocus-href]')) {
+      link.setAttribute('href', link.dataset[HREF_STASH]);
+      delete link.dataset[HREF_STASH];
+    }
+  }
+
   function sweep() {
     scheduled = false;
+    defuseLinks();
 
     for (const link of document.querySelectorAll('a[href^="/shorts/"]')) {
       const card = link.closest(CARD_SELECTORS);
@@ -76,4 +104,8 @@
   } else {
     document.addEventListener('DOMContentLoaded', start, { once: true });
   }
+
+  // guard.js дёргает это после смены режима: если YouTube переиспользовал
+  // готовый DOM и мутаций не было, наблюдатель сам бы не проснулся.
+  globalThis.YtFocusSweep = { schedule };
 })();
