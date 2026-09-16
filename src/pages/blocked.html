@@ -1,23 +1,26 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Shorts заблокированы — Youtube Focus</title>
+    <title data-i18n="blockedTitle">Shorts blocked</title>
     <link rel="stylesheet" href="pages.css" />
   </head>
   <body>
     <main class="card">
-      <h1>Shorts заблокированы</h1>
-      <p>
-        Расширение Youtube Focus перехватило переход на короткое видео. Если вы
-        шли сюда за чем-то конкретным — оно наверняка есть в вашем плане.
+      <h1 data-i18n="blockedHeading">Shorts blocked</h1>
+      <p data-i18n="blockedText">
+        Youtube Focus intercepted a short video. If you came here for something
+        specific, it is probably already on your plan.
       </p>
       <div class="row">
-        <button id="back" type="button">Назад</button>
-        <a id="planned" class="button primary" href="#">К запланированному</a>
+        <button id="back" type="button" data-i18n="actionBack">Back</button>
+        <a id="planned" class="button primary" href="#" data-i18n="actionPlanned">
+          Go to plan
+        </a>
       </div>
     </main>
     <script src="../common/settings.js"></script>
+    <script src="../common/i18n.js"></script>
     <script src="blocked.js"></script>
   </body>
 </html>

@@ -1,95 +1,110 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Настройки — Youtube Focus</title>
+    <title data-i18n="optionsTitle">Youtube Focus settings</title>
     <link rel="stylesheet" href="pages.css" />
   </head>
   <body>
     <main class="card">
-      <h1>Youtube Focus</h1>
-      <p>Меньше ленты, ноль Shorts, смотрим только то, что запланировали.</p>
+      <h1 data-i18n="extName">Youtube Focus</h1>
+      <p data-i18n="tagline">
+        Less feed, zero Shorts, and only what you planned to watch.
+      </p>
 
-      <h2>Главная страница</h2>
+      <h2 data-i18n="sectionHome">Home page</h2>
       <label>
         <input type="radio" name="homeMode" value="showcase" />
         <span>
-          Витрина без запуска
-          <small>
-            Лента видна, но клик по видео ничего не делает. Кнопка «Смотреть
-            позже» на превью работает — ею и пополняется план.
+          <span data-i18n="homeShowcase">Showcase without playback</span>
+          <small data-i18n="homeShowcaseHint">
+            The feed stays visible, but clicking a video does nothing. The native
+            Watch later button on the thumbnail still works — that is how you
+            fill the plan.
           </small>
         </span>
       </label>
       <label>
         <input type="radio" name="homeMode" value="redirect" />
         <span>
-          Сразу уходить на план
-          <small>youtube.com заменяется на страницу запланированного.</small>
+          <span data-i18n="homeRedirect">Go straight to the plan</span>
+          <small data-i18n="homeRedirectHint">
+            youtube.com is replaced with your planned list.
+          </small>
         </span>
       </label>
 
-      <h2>Запланированное</h2>
+      <h2 data-i18n="sectionPlanned">Planned list</h2>
       <label>
         <span style="width: 100%">
-          Адрес плана
-          <small>
-            По умолчанию — родной плейлист «Смотреть позже». Должен вести на
-            youtube.com и иметь непустой путь.
+          <span data-i18n="plannedLabel">Plan address</span>
+          <small data-i18n="plannedHint">
+            Defaults to the native Watch later playlist. Must point to
+            youtube.com and have a non-empty path.
           </small>
           <input id="plannedUrl" type="url" spellcheck="false" />
         </span>
       </label>
 
-      <h2>Shorts</h2>
+      <h2 data-i18n="sectionShorts">Shorts</h2>
       <label>
         <input type="radio" name="shortsMode" value="block" />
         <span>
-          Скрывать и блокировать переход
-          <small>Открытие /shorts/… показывает заглушку расширения.</small>
+          <span data-i18n="shortsBlock">Hide and block playback</span>
+          <small data-i18n="shortsBlockHint">
+            Opening /shorts/… shows the extension stub.
+          </small>
         </span>
       </label>
       <label>
         <input type="radio" name="shortsMode" value="hide" />
         <span>
-          Только скрывать
-          <small>Прямая ссылка на Shorts продолжит открываться.</small>
+          <span data-i18n="shortsHide">Hide only</span>
+          <small data-i18n="shortsHideHint">
+            A direct link to Shorts keeps working.
+          </small>
         </span>
       </label>
 
-      <h2>Страница видео</h2>
+      <h2 data-i18n="sectionWatch">Video page</h2>
       <label>
         <input id="hideWatchSidebar" type="checkbox" />
         <span>
-          Скрывать рекомендации справа
-          <small>Заодно убирает конечные заставки поверх плеера.</small>
+          <span data-i18n="hideSidebar">Hide recommendations on the right</span>
+          <small data-i18n="hideSidebarHint">
+            Also removes end screens on top of the player. The player itself does
+            not move.
+          </small>
         </span>
       </label>
       <label>
         <input id="hideComments" type="checkbox" />
-        <span>Скрывать комментарии</span>
+        <span data-i18n="hideComments">Hide comments</span>
       </label>
 
-      <h2>Прочее</h2>
+      <h2 data-i18n="sectionOther">Other</h2>
       <label>
         <input id="showToast" type="checkbox" />
         <span>
-          Показывать подсказку при мёртвом клике
-          <small>Иначе клик по видео в ленте выглядит как баг сайта.</small>
+          <span data-i18n="showToast">Show a hint on a dead click</span>
+          <small data-i18n="showToastHint">
+            Otherwise a click in the feed just looks like a broken site.
+          </small>
         </span>
       </label>
       <label>
         <input id="enabled" type="checkbox" />
-        <span>Расширение включено</span>
+        <span data-i18n="enabledLabel">Extension enabled</span>
       </label>
 
       <div class="row">
-        <button id="save" class="primary" type="button">Сохранить</button>
-        <button id="reset" type="button">Сбросить настройки</button>
+        <button id="save" class="primary" type="button" data-i18n="actionSave">Save</button>
+        <button id="reset" type="button" data-i18n="actionReset">Reset settings</button>
       </div>
       <div id="status" class="status" role="status"></div>
     </main>
     <script src="../common/settings.js"></script>
+    <script src="../common/i18n.js"></script>
     <script src="options.js"></script>
   </body>
 </html>

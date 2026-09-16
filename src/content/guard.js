@@ -109,9 +109,9 @@
       toast = document.createElement('div');
       toast.id = 'ytfocus-toast';
       const text = document.createElement('span');
-      text.textContent = 'Переход из ленты отключён. Сохраните в «Смотреть позже».';
+      text.textContent = chrome.i18n.getMessage('toastText');
       const link = document.createElement('a');
-      link.textContent = 'Открыть план';
+      link.textContent = chrome.i18n.getMessage('toastLink');
       link.href = settings.plannedUrl;
       toast.append(text, link);
       document.body.appendChild(toast);

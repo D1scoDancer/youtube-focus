@@ -4,13 +4,15 @@
   const SNOOZE_MS = 15 * 60 * 1000;
   const $ = (id) => document.getElementById(id);
 
+  const t = (key, ...args) => chrome.i18n.getMessage(key, args.map(String));
+
   function describe(settings) {
-    if (!settings.enabled) return 'Выключено в настройках.';
+    if (!settings.enabled) return t('stateDisabled');
     const left = settings.snoozeUntil - Date.now();
-    if (left > 0) return `Пауза ещё ${Math.ceil(left / 60000)} мин.`;
+    if (left > 0) return t('statePaused', Math.ceil(left / 60000));
     return settings.homeMode === 'redirect'
-      ? 'Главная уводит на план, Shorts заблокированы.'
-      : 'Лента без запуска видео, Shorts заблокированы.';
+      ? t('stateRedirect')
+      : t('stateShowcase');
   }
 
   async function refresh() {
@@ -18,7 +20,7 @@
     $('state').textContent = describe(settings);
     $('planned').href = settings.plannedUrl;
     const paused = YtFocus.isPaused(settings);
-    $('snooze').textContent = paused ? 'Снять паузу' : 'Пауза на 15 минут';
+    $('snooze').textContent = paused ? t('actionResume') : t('actionSnooze');
     return settings;
   }
 

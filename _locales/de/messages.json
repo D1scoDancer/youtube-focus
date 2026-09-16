@@ -1,0 +1,143 @@
+{
+  "extName": {
+    "message": "Youtube Focus"
+  },
+  "extDescription": {
+    "message": "Entfernt Shorts und macht aus der YouTube-Startseite statt eines endlosen Feeds eine Auslage ohne Wiedergabe."
+  },
+  "tagline": {
+    "message": "Weniger Feed, null Shorts, und nur das, was Sie sich vorgenommen haben."
+  },
+  "toastText": {
+    "message": "Videos aus dem Feed zu öffnen ist abgeschaltet. Speichern Sie es unter „Später ansehen“."
+  },
+  "toastLink": {
+    "message": "Plan öffnen"
+  },
+  "blockedTitle": {
+    "message": "Shorts blockiert — Youtube Focus"
+  },
+  "blockedHeading": {
+    "message": "Shorts blockiert"
+  },
+  "blockedText": {
+    "message": "Youtube Focus hat ein Kurzvideo abgefangen. Wenn Sie wegen etwas Bestimmtem hier sind, steht es vermutlich schon in Ihrem Plan."
+  },
+  "actionBack": {
+    "message": "Zurück"
+  },
+  "actionPlanned": {
+    "message": "Zum Plan"
+  },
+  "actionSave": {
+    "message": "Speichern"
+  },
+  "actionReset": {
+    "message": "Einstellungen zurücksetzen"
+  },
+  "actionOpenPlanned": {
+    "message": "Geplantes öffnen"
+  },
+  "actionSnooze": {
+    "message": "15 Minuten pausieren"
+  },
+  "actionResume": {
+    "message": "Sperre fortsetzen"
+  },
+  "actionOptions": {
+    "message": "Einstellungen"
+  },
+  "optionsTitle": {
+    "message": "Einstellungen — Youtube Focus"
+  },
+  "sectionHome": {
+    "message": "Startseite"
+  },
+  "homeShowcase": {
+    "message": "Auslage ohne Wiedergabe"
+  },
+  "homeShowcaseHint": {
+    "message": "Der Feed bleibt sichtbar, aber ein Klick auf ein Video bewirkt nichts. Die native Schaltfläche „Später ansehen“ auf dem Vorschaubild funktioniert weiterhin — so füllen Sie den Plan."
+  },
+  "homeRedirect": {
+    "message": "Direkt zum Plan"
+  },
+  "homeRedirectHint": {
+    "message": "youtube.com wird durch Ihre geplante Liste ersetzt."
+  },
+  "sectionPlanned": {
+    "message": "Geplantes"
+  },
+  "plannedLabel": {
+    "message": "Adresse des Plans"
+  },
+  "plannedHint": {
+    "message": "Standardmäßig die native Playlist „Später ansehen“. Sie muss auf youtube.com zeigen und einen nicht leeren Pfad haben."
+  },
+  "sectionShorts": {
+    "message": "Shorts"
+  },
+  "shortsBlock": {
+    "message": "Ausblenden und Aufruf blockieren"
+  },
+  "shortsBlockHint": {
+    "message": "Der Aufruf von /shorts/… zeigt die Seite der Erweiterung."
+  },
+  "shortsHide": {
+    "message": "Nur ausblenden"
+  },
+  "shortsHideHint": {
+    "message": "Ein direkter Link zu Shorts lässt sich weiterhin öffnen."
+  },
+  "sectionWatch": {
+    "message": "Videoseite"
+  },
+  "hideSidebar": {
+    "message": "Empfehlungen rechts ausblenden"
+  },
+  "hideSidebarHint": {
+    "message": "Entfernt zugleich die Abspanne über dem Player. Der Player selbst verschiebt sich nicht."
+  },
+  "hideComments": {
+    "message": "Kommentare ausblenden"
+  },
+  "sectionOther": {
+    "message": "Sonstiges"
+  },
+  "showToast": {
+    "message": "Hinweis bei wirkungslosem Klick anzeigen"
+  },
+  "showToastHint": {
+    "message": "Sonst wirkt ein Klick im Feed wie ein Fehler der Website."
+  },
+  "enabledLabel": {
+    "message": "Erweiterung aktiviert"
+  },
+  "statusSaved": {
+    "message": "Gespeichert. Laden Sie den YouTube-Tab neu, falls er schon offen ist."
+  },
+  "statusSavedFallback": {
+    "message": "Diese Adresse passte nicht, „Später ansehen“ wurde wiederhergestellt. Gespeichert."
+  },
+  "statusReset": {
+    "message": "Einstellungen zurückgesetzt."
+  },
+  "stateDisabled": {
+    "message": "In den Einstellungen deaktiviert."
+  },
+  "statePaused": {
+    "message": "Noch $MINUTES$ Min. pausiert.",
+    "placeholders": {
+      "minutes": {
+        "content": "$1",
+        "example": "12"
+      }
+    }
+  },
+  "stateRedirect": {
+    "message": "Die Startseite führt zum Plan, Shorts blockiert."
+  },
+  "stateShowcase": {
+    "message": "Feed ohne Wiedergabe, Shorts blockiert."
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "extName": {
+    "message": "Youtube Focus"
+  },
+  "extDescription": {
+    "message": "Supprime les Shorts et transforme la page d’accueil YouTube en vitrine depuis laquelle aucune vidéo ne se lance."
+  },
+  "tagline": {
+    "message": "Moins de fil, zéro Shorts, et uniquement ce que vous avez prévu de regarder."
+  },
+  "toastText": {
+    "message": "L’ouverture des vidéos depuis le fil est désactivée. Enregistrez-la dans « À regarder plus tard »."
+  },
+  "toastLink": {
+    "message": "Ouvrir le plan"
+  },
+  "blockedTitle": {
+    "message": "Shorts bloqués — Youtube Focus"
+  },
+  "blockedHeading": {
+    "message": "Shorts bloqués"
+  },
+  "blockedText": {
+    "message": "Youtube Focus a intercepté une vidéo courte. Si vous veniez chercher quelque chose de précis, c’est sans doute déjà dans votre plan."
+  },
+  "actionBack": {
+    "message": "Retour"
+  },
+  "actionPlanned": {
+    "message": "Aller au plan"
+  },
+  "actionSave": {
+    "message": "Enregistrer"
+  },
+  "actionReset": {
+    "message": "Réinitialiser les réglages"
+  },
+  "actionOpenPlanned": {
+    "message": "Ouvrir le planifié"
+  },
+  "actionSnooze": {
+    "message": "Pause de 15 minutes"
+  },
+  "actionResume": {
+    "message": "Reprendre le blocage"
+  },
+  "actionOptions": {
+    "message": "Réglages"
+  },
+  "optionsTitle": {
+    "message": "Réglages — Youtube Focus"
+  },
+  "sectionHome": {
+    "message": "Page d’accueil"
+  },
+  "homeShowcase": {
+    "message": "Vitrine sans lecture"
+  },
+  "homeShowcaseHint": {
+    "message": "Le fil reste visible, mais cliquer sur une vidéo ne fait rien. Le bouton natif « À regarder plus tard » sur la miniature fonctionne toujours : c’est ainsi que le plan se remplit."
+  },
+  "homeRedirect": {
+    "message": "Aller directement au plan"
+  },
+  "homeRedirectHint": {
+    "message": "youtube.com est remplacé par votre liste planifiée."
+  },
+  "sectionPlanned": {
+    "message": "Planifié"
+  },
+  "plannedLabel": {
+    "message": "Adresse du plan"
+  },
+  "plannedHint": {
+    "message": "Par défaut, la playlist native « À regarder plus tard ». Elle doit pointer vers youtube.com et avoir un chemin non vide."
+  },
+  "sectionShorts": {
+    "message": "Shorts"
+  },
+  "shortsBlock": {
+    "message": "Masquer et bloquer l’ouverture"
+  },
+  "shortsBlockHint": {
+    "message": "Ouvrir /shorts/… affiche l’écran de l’extension."
+  },
+  "shortsHide": {
+    "message": "Masquer seulement"
+  },
+  "shortsHideHint": {
+    "message": "Un lien direct vers les Shorts continuera de s’ouvrir."
+  },
+  "sectionWatch": {
+    "message": "Page de la vidéo"
+  },
+  "hideSidebar": {
+    "message": "Masquer les recommandations à droite"
+  },
+  "hideSidebarHint": {
+    "message": "Retire aussi les écrans de fin par-dessus le lecteur. Le lecteur, lui, ne bouge pas."
+  },
+  "hideComments": {
+    "message": "Masquer les commentaires"
+  },
+  "sectionOther": {
+    "message": "Divers"
+  },
+  "showToast": {
+    "message": "Afficher un message lors d’un clic sans effet"
+  },
+  "showToastHint": {
+    "message": "Sinon, un clic dans le fil ressemble à un bug du site."
+  },
+  "enabledLabel": {
+    "message": "Extension activée"
+  },
+  "statusSaved": {
+    "message": "Enregistré. Rechargez l’onglet YouTube s’il est déjà ouvert."
+  },
+  "statusSavedFallback": {
+    "message": "Cette adresse ne convenait pas, « À regarder plus tard » a été rétablie. Enregistré."
+  },
+  "statusReset": {
+    "message": "Réglages réinitialisés."
+  },
+  "stateDisabled": {
+    "message": "Désactivée dans les réglages."
+  },
+  "statePaused": {
+    "message": "En pause encore $MINUTES$ min.",
+    "placeholders": {
+      "minutes": {
+        "content": "$1",
+        "example": "12"
+      }
+    }
+  },
+  "stateRedirect": {
+    "message": "L’accueil mène au plan, Shorts bloqués."
+  },
+  "stateShowcase": {
+    "message": "Fil sans lecture, Shorts bloqués."
+  }
+}

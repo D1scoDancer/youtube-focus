@@ -1,0 +1,143 @@
+{
+  "extName": {
+    "message": "Youtube Focus"
+  },
+  "extDescription": {
+    "message": "Usuwa Shorts i zmienia stronę główną YouTube z nieskończonego feedu w witrynę, z której nic nie odtworzysz."
+  },
+  "tagline": {
+    "message": "Mniej feedu, zero Shortsów, tylko to, co zaplanowałeś obejrzeć."
+  },
+  "toastText": {
+    "message": "Otwieranie filmów z feedu jest wyłączone. Zapisz go w „Do obejrzenia”."
+  },
+  "toastLink": {
+    "message": "Otwórz plan"
+  },
+  "blockedTitle": {
+    "message": "Shorts zablokowane — Youtube Focus"
+  },
+  "blockedHeading": {
+    "message": "Shorts zablokowane"
+  },
+  "blockedText": {
+    "message": "Youtube Focus przechwycił krótki film. Jeśli szedłeś tu po coś konkretnego, zapewne jest to już w twoim planie."
+  },
+  "actionBack": {
+    "message": "Wstecz"
+  },
+  "actionPlanned": {
+    "message": "Przejdź do planu"
+  },
+  "actionSave": {
+    "message": "Zapisz"
+  },
+  "actionReset": {
+    "message": "Przywróć ustawienia"
+  },
+  "actionOpenPlanned": {
+    "message": "Otwórz zaplanowane"
+  },
+  "actionSnooze": {
+    "message": "Pauza na 15 minut"
+  },
+  "actionResume": {
+    "message": "Wznów blokadę"
+  },
+  "actionOptions": {
+    "message": "Ustawienia"
+  },
+  "optionsTitle": {
+    "message": "Ustawienia — Youtube Focus"
+  },
+  "sectionHome": {
+    "message": "Strona główna"
+  },
+  "homeShowcase": {
+    "message": "Witryna bez odtwarzania"
+  },
+  "homeShowcaseHint": {
+    "message": "Feed pozostaje widoczny, ale kliknięcie filmu nic nie robi. Natywny przycisk „Do obejrzenia” na miniaturze nadal działa — właśnie nim uzupełniasz plan."
+  },
+  "homeRedirect": {
+    "message": "Od razu przechodzić do planu"
+  },
+  "homeRedirectHint": {
+    "message": "youtube.com zostaje zastąpiona twoją zaplanowaną listą."
+  },
+  "sectionPlanned": {
+    "message": "Zaplanowane"
+  },
+  "plannedLabel": {
+    "message": "Adres planu"
+  },
+  "plannedHint": {
+    "message": "Domyślnie natywna playlista „Do obejrzenia”. Musi prowadzić na youtube.com i mieć niepustą ścieżkę."
+  },
+  "sectionShorts": {
+    "message": "Shorts"
+  },
+  "shortsBlock": {
+    "message": "Ukrywać i blokować otwieranie"
+  },
+  "shortsBlockHint": {
+    "message": "Otwarcie /shorts/… pokazuje ekran rozszerzenia."
+  },
+  "shortsHide": {
+    "message": "Tylko ukrywać"
+  },
+  "shortsHideHint": {
+    "message": "Bezpośredni link do Shortsów nadal będzie działał."
+  },
+  "sectionWatch": {
+    "message": "Strona filmu"
+  },
+  "hideSidebar": {
+    "message": "Ukrywać polecane po prawej"
+  },
+  "hideSidebarHint": {
+    "message": "Usuwa też plansze końcowe na odtwarzaczu. Sam odtwarzacz się nie przesuwa."
+  },
+  "hideComments": {
+    "message": "Ukrywać komentarze"
+  },
+  "sectionOther": {
+    "message": "Inne"
+  },
+  "showToast": {
+    "message": "Pokazywać podpowiedź przy martwym kliknięciu"
+  },
+  "showToastHint": {
+    "message": "Inaczej kliknięcie w feedzie wygląda jak błąd strony."
+  },
+  "enabledLabel": {
+    "message": "Rozszerzenie włączone"
+  },
+  "statusSaved": {
+    "message": "Zapisano. Odśwież kartę YouTube, jeśli jest już otwarta."
+  },
+  "statusSavedFallback": {
+    "message": "Ten adres się nie nadawał, przywrócono „Do obejrzenia”. Zapisano."
+  },
+  "statusReset": {
+    "message": "Ustawienia przywrócone."
+  },
+  "stateDisabled": {
+    "message": "Wyłączone w ustawieniach."
+  },
+  "statePaused": {
+    "message": "Pauza jeszcze przez $MINUTES$ min.",
+    "placeholders": {
+      "minutes": {
+        "content": "$1",
+        "example": "12"
+      }
+    }
+  },
+  "stateRedirect": {
+    "message": "Strona główna prowadzi do planu, Shorts zablokowane."
+  },
+  "stateShowcase": {
+    "message": "Feed bez odtwarzania, Shorts zablokowane."
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "extName": {
+    "message": "Youtube Focus"
+  },
+  "extDescription": {
+    "message": "移除 Shorts，并把 YouTube 首页从无尽信息流变成无法播放视频的陈列页。"
+  },
+  "tagline": {
+    "message": "更少信息流，零 Shorts，只看你计划要看的内容。"
+  },
+  "toastText": {
+    "message": "已关闭从信息流打开视频。请用「稍后观看」保存它。"
+  },
+  "toastLink": {
+    "message": "打开计划"
+  },
+  "blockedTitle": {
+    "message": "Shorts 已拦截 — Youtube Focus"
+  },
+  "blockedHeading": {
+    "message": "Shorts 已拦截"
+  },
+  "blockedText": {
+    "message": "Youtube Focus 拦截了一个短视频。如果你是为某个具体内容而来，它多半已经在你的计划里了。"
+  },
+  "actionBack": {
+    "message": "返回"
+  },
+  "actionPlanned": {
+    "message": "前往计划"
+  },
+  "actionSave": {
+    "message": "保存"
+  },
+  "actionReset": {
+    "message": "重置设置"
+  },
+  "actionOpenPlanned": {
+    "message": "打开已计划内容"
+  },
+  "actionSnooze": {
+    "message": "暂停 15 分钟"
+  },
+  "actionResume": {
+    "message": "恢复拦截"
+  },
+  "actionOptions": {
+    "message": "设置"
+  },
+  "optionsTitle": {
+    "message": "设置 — Youtube Focus"
+  },
+  "sectionHome": {
+    "message": "首页"
+  },
+  "homeShowcase": {
+    "message": "无法播放的陈列页"
+  },
+  "homeShowcaseHint": {
+    "message": "信息流仍然可见，但点击视频不会有任何反应。缩略图上的「稍后观看」按钮照常可用，计划正是这样填充的。"
+  },
+  "homeRedirect": {
+    "message": "直接前往计划"
+  },
+  "homeRedirectHint": {
+    "message": "youtube.com 将被替换为你的计划列表。"
+  },
+  "sectionPlanned": {
+    "message": "已计划内容"
+  },
+  "plannedLabel": {
+    "message": "计划地址"
+  },
+  "plannedHint": {
+    "message": "默认为原生播放列表「稍后观看」。地址须指向 youtube.com，且路径不能为空。"
+  },
+  "sectionShorts": {
+    "message": "Shorts"
+  },
+  "shortsBlock": {
+    "message": "隐藏并拦截打开"
+  },
+  "shortsBlockHint": {
+    "message": "打开 /shorts/… 时显示扩展的提示页。"
+  },
+  "shortsHide": {
+    "message": "仅隐藏"
+  },
+  "shortsHideHint": {
+    "message": "直接链接到 Shorts 仍可打开。"
+  },
+  "sectionWatch": {
+    "message": "视频页面"
+  },
+  "hideSidebar": {
+    "message": "隐藏右侧推荐"
+  },
+  "hideSidebarHint": {
+    "message": "同时移除播放器上方的片尾卡片。播放器本身不会移动。"
+  },
+  "hideComments": {
+    "message": "隐藏评论"
+  },
+  "sectionOther": {
+    "message": "其他"
+  },
+  "showToast": {
+    "message": "点击无效时显示提示"
+  },
+  "showToastHint": {
+    "message": "否则在信息流中点击会像是网站出了故障。"
+  },
+  "enabledLabel": {
+    "message": "启用扩展"
+  },
+  "statusSaved": {
+    "message": "已保存。如果 YouTube 标签页已打开，请刷新。"
+  },
+  "statusSavedFallback": {
+    "message": "该计划地址不可用，已恢复为「稍后观看」。已保存。"
+  },
+  "statusReset": {
+    "message": "设置已重置。"
+  },
+  "stateDisabled": {
+    "message": "已在设置中关闭。"
+  },
+  "statePaused": {
+    "message": "还将暂停 $MINUTES$ 分钟。",
+    "placeholders": {
+      "minutes": {
+        "content": "$1",
+        "example": "12"
+      }
+    }
+  },
+  "stateRedirect": {
+    "message": "首页通往计划，Shorts 已拦截。"
+  },
+  "stateShowcase": {
+    "message": "信息流无法播放，Shorts 已拦截。"
+  }
+}

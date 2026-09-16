@@ -47,15 +47,15 @@
     $('plannedUrl').value = planned;
 
     if (typed && planned !== typed) {
-      say('Адрес плана не подошёл, вернули «Смотреть позже». Сохранено.', true);
+      say(chrome.i18n.getMessage('statusSavedFallback'), true);
     } else {
-      say('Сохранено. Обновите вкладку YouTube, если она уже открыта.');
+      say(chrome.i18n.getMessage('statusSaved'));
     }
   });
 
   $('reset').addEventListener('click', async () => {
     await YtFocus.setSettings(YtFocus.DEFAULTS);
     render(await YtFocus.getSettings());
-    say('Настройки сброшены.');
+    say(chrome.i18n.getMessage('statusReset'));
   });
 })();

@@ -1,0 +1,143 @@
+{
+  "extName": {
+    "message": "Youtube Focus"
+  },
+  "extDescription": {
+    "message": "Shorts’u kaldırır ve YouTube ana sayfasını sonsuz akıştan, video başlatılamayan bir vitrine dönüştürür."
+  },
+  "tagline": {
+    "message": "Daha az akış, sıfır Shorts, yalnızca izlemeyi planladığınız şeyler."
+  },
+  "toastText": {
+    "message": "Akıştan video açma kapalı. Videoyu «Daha sonra izle» listesine kaydedin."
+  },
+  "toastLink": {
+    "message": "Planı aç"
+  },
+  "blockedTitle": {
+    "message": "Shorts engellendi — Youtube Focus"
+  },
+  "blockedHeading": {
+    "message": "Shorts engellendi"
+  },
+  "blockedText": {
+    "message": "Youtube Focus kısa bir videoyu engelledi. Buraya belirli bir şey için geldiyseniz, o şey büyük ihtimalle zaten planınızda."
+  },
+  "actionBack": {
+    "message": "Geri"
+  },
+  "actionPlanned": {
+    "message": "Plana git"
+  },
+  "actionSave": {
+    "message": "Kaydet"
+  },
+  "actionReset": {
+    "message": "Ayarları sıfırla"
+  },
+  "actionOpenPlanned": {
+    "message": "Planlananı aç"
+  },
+  "actionSnooze": {
+    "message": "15 dakika duraklat"
+  },
+  "actionResume": {
+    "message": "Engellemeyi sürdür"
+  },
+  "actionOptions": {
+    "message": "Ayarlar"
+  },
+  "optionsTitle": {
+    "message": "Ayarlar — Youtube Focus"
+  },
+  "sectionHome": {
+    "message": "Ana sayfa"
+  },
+  "homeShowcase": {
+    "message": "Başlatmasız vitrin"
+  },
+  "homeShowcaseHint": {
+    "message": "Akış görünür kalır ama videoya tıklamak hiçbir şey yapmaz. Küçük resimdeki «Daha sonra izle» düğmesi çalışmayı sürdürür — planı onunla doldurursunuz."
+  },
+  "homeRedirect": {
+    "message": "Doğrudan plana git"
+  },
+  "homeRedirectHint": {
+    "message": "youtube.com, planladığınız listeyle değiştirilir."
+  },
+  "sectionPlanned": {
+    "message": "Planlanan"
+  },
+  "plannedLabel": {
+    "message": "Plan adresi"
+  },
+  "plannedHint": {
+    "message": "Varsayılan olarak «Daha sonra izle» oynatma listesi. youtube.com adresine işaret etmeli ve yolu boş olmamalı."
+  },
+  "sectionShorts": {
+    "message": "Shorts"
+  },
+  "shortsBlock": {
+    "message": "Gizle ve açılmasını engelle"
+  },
+  "shortsBlockHint": {
+    "message": "/shorts/… açıldığında uzantının ekranı görünür."
+  },
+  "shortsHide": {
+    "message": "Yalnızca gizle"
+  },
+  "shortsHideHint": {
+    "message": "Shorts’a doğrudan verilen bağlantı açılmayı sürdürür."
+  },
+  "sectionWatch": {
+    "message": "Video sayfası"
+  },
+  "hideSidebar": {
+    "message": "Sağdaki önerileri gizle"
+  },
+  "hideSidebarHint": {
+    "message": "Oynatıcının üzerindeki bitiş ekranlarını da kaldırır. Oynatıcının kendisi yerinden oynamaz."
+  },
+  "hideComments": {
+    "message": "Yorumları gizle"
+  },
+  "sectionOther": {
+    "message": "Diğer"
+  },
+  "showToast": {
+    "message": "İşlevsiz tıklamada ipucu göster"
+  },
+  "showToastHint": {
+    "message": "Aksi hâlde akıştaki tıklama sitenin hatası gibi görünür."
+  },
+  "enabledLabel": {
+    "message": "Uzantı etkin"
+  },
+  "statusSaved": {
+    "message": "Kaydedildi. YouTube sekmesi açıksa yenileyin."
+  },
+  "statusSavedFallback": {
+    "message": "Bu plan adresi uygun değildi, «Daha sonra izle» geri getirildi. Kaydedildi."
+  },
+  "statusReset": {
+    "message": "Ayarlar sıfırlandı."
+  },
+  "stateDisabled": {
+    "message": "Ayarlardan kapatıldı."
+  },
+  "statePaused": {
+    "message": "$MINUTES$ dakika daha duraklatıldı.",
+    "placeholders": {
+      "minutes": {
+        "content": "$1",
+        "example": "12"
+      }
+    }
+  },
+  "stateRedirect": {
+    "message": "Ana sayfa plana götürüyor, Shorts engelli."
+  },
+  "stateShowcase": {
+    "message": "Akış var ama video başlamıyor, Shorts engelli."
+  }
+}

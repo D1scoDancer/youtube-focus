@@ -1,0 +1,143 @@
+{
+  "extName": {
+    "message": "Youtube Focus"
+  },
+  "extDescription": {
+    "message": "Remove os Shorts e transforma a página inicial do YouTube em uma vitrine da qual não dá para reproduzir nada."
+  },
+  "tagline": {
+    "message": "Menos feed, zero Shorts e só aquilo que você planejou assistir."
+  },
+  "toastText": {
+    "message": "Abrir vídeos pelo feed está desligado. Salve em «Assistir mais tarde»."
+  },
+  "toastLink": {
+    "message": "Abrir o plano"
+  },
+  "blockedTitle": {
+    "message": "Shorts bloqueados — Youtube Focus"
+  },
+  "blockedHeading": {
+    "message": "Shorts bloqueados"
+  },
+  "blockedText": {
+    "message": "O Youtube Focus interceptou um vídeo curto. Se você veio atrás de algo específico, provavelmente já está no seu plano."
+  },
+  "actionBack": {
+    "message": "Voltar"
+  },
+  "actionPlanned": {
+    "message": "Ir para o plano"
+  },
+  "actionSave": {
+    "message": "Salvar"
+  },
+  "actionReset": {
+    "message": "Redefinir configurações"
+  },
+  "actionOpenPlanned": {
+    "message": "Abrir o planejado"
+  },
+  "actionSnooze": {
+    "message": "Pausar por 15 minutos"
+  },
+  "actionResume": {
+    "message": "Retomar o bloqueio"
+  },
+  "actionOptions": {
+    "message": "Configurações"
+  },
+  "optionsTitle": {
+    "message": "Configurações — Youtube Focus"
+  },
+  "sectionHome": {
+    "message": "Página inicial"
+  },
+  "homeShowcase": {
+    "message": "Vitrine sem reprodução"
+  },
+  "homeShowcaseHint": {
+    "message": "O feed continua visível, mas clicar em um vídeo não faz nada. O botão «Assistir mais tarde» na miniatura continua funcionando — é assim que o plano é preenchido."
+  },
+  "homeRedirect": {
+    "message": "Ir direto para o plano"
+  },
+  "homeRedirectHint": {
+    "message": "youtube.com é substituído pela sua lista planejada."
+  },
+  "sectionPlanned": {
+    "message": "Planejado"
+  },
+  "plannedLabel": {
+    "message": "Endereço do plano"
+  },
+  "plannedHint": {
+    "message": "Por padrão, a playlist nativa «Assistir mais tarde». Precisa apontar para youtube.com e ter um caminho não vazio."
+  },
+  "sectionShorts": {
+    "message": "Shorts"
+  },
+  "shortsBlock": {
+    "message": "Ocultar e bloquear a abertura"
+  },
+  "shortsBlockHint": {
+    "message": "Abrir /shorts/… mostra a tela da extensão."
+  },
+  "shortsHide": {
+    "message": "Apenas ocultar"
+  },
+  "shortsHideHint": {
+    "message": "Um link direto para Shorts continuará abrindo."
+  },
+  "sectionWatch": {
+    "message": "Página do vídeo"
+  },
+  "hideSidebar": {
+    "message": "Ocultar as recomendações à direita"
+  },
+  "hideSidebarHint": {
+    "message": "Também remove as telas finais sobre o player. O player em si não se desloca."
+  },
+  "hideComments": {
+    "message": "Ocultar os comentários"
+  },
+  "sectionOther": {
+    "message": "Outros"
+  },
+  "showToast": {
+    "message": "Mostrar um aviso no clique sem efeito"
+  },
+  "showToastHint": {
+    "message": "Sem ele, o clique no feed parece um defeito do site."
+  },
+  "enabledLabel": {
+    "message": "Extensão ativada"
+  },
+  "statusSaved": {
+    "message": "Salvo. Recarregue a aba do YouTube se ela já estiver aberta."
+  },
+  "statusSavedFallback": {
+    "message": "Esse endereço não serviu; «Assistir mais tarde» foi restaurado. Salvo."
+  },
+  "statusReset": {
+    "message": "Configurações redefinidas."
+  },
+  "stateDisabled": {
+    "message": "Desativada nas configurações."
+  },
+  "statePaused": {
+    "message": "Em pausa por mais $MINUTES$ min.",
+    "placeholders": {
+      "minutes": {
+        "content": "$1",
+        "example": "12"
+      }
+    }
+  },
+  "stateRedirect": {
+    "message": "A página inicial leva ao plano, Shorts bloqueados."
+  },
+  "stateShowcase": {
+    "message": "Feed sem reprodução, Shorts bloqueados."
+  }
+}

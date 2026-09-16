@@ -1,0 +1,143 @@
+{
+  "extName": {
+    "message": "Youtube Focus"
+  },
+  "extDescription": {
+    "message": "Прибирає Shorts і перетворює головну сторінку YouTube з нескінченної стрічки на вітрину без запуску відео."
+  },
+  "tagline": {
+    "message": "Менше стрічки, нуль Shorts, дивимося лише те, що запланували."
+  },
+  "toastText": {
+    "message": "Перехід зі стрічки вимкнено. Збережіть у «Переглянути пізніше»."
+  },
+  "toastLink": {
+    "message": "Відкрити план"
+  },
+  "blockedTitle": {
+    "message": "Shorts заблоковано — Youtube Focus"
+  },
+  "blockedHeading": {
+    "message": "Shorts заблоковано"
+  },
+  "blockedText": {
+    "message": "Розширення Youtube Focus перехопило перехід до короткого відео. Якщо ви йшли сюди за чимось конкретним — воно напевно вже є у вашому плані."
+  },
+  "actionBack": {
+    "message": "Назад"
+  },
+  "actionPlanned": {
+    "message": "До запланованого"
+  },
+  "actionSave": {
+    "message": "Зберегти"
+  },
+  "actionReset": {
+    "message": "Скинути налаштування"
+  },
+  "actionOpenPlanned": {
+    "message": "Відкрити заплановане"
+  },
+  "actionSnooze": {
+    "message": "Пауза на 15 хвилин"
+  },
+  "actionResume": {
+    "message": "Зняти паузу"
+  },
+  "actionOptions": {
+    "message": "Налаштування"
+  },
+  "optionsTitle": {
+    "message": "Налаштування — Youtube Focus"
+  },
+  "sectionHome": {
+    "message": "Головна сторінка"
+  },
+  "homeShowcase": {
+    "message": "Вітрина без запуску"
+  },
+  "homeShowcaseHint": {
+    "message": "Стрічка видима, але клік по відео нічого не робить. Кнопка «Переглянути пізніше» на прев’ю працює — саме нею поповнюється план."
+  },
+  "homeRedirect": {
+    "message": "Одразу переходити до плану"
+  },
+  "homeRedirectHint": {
+    "message": "youtube.com замінюється на сторінку запланованого."
+  },
+  "sectionPlanned": {
+    "message": "Заплановане"
+  },
+  "plannedLabel": {
+    "message": "Адреса плану"
+  },
+  "plannedHint": {
+    "message": "Типово — рідний плейлист «Переглянути пізніше». Має вести на youtube.com і мати непорожній шлях."
+  },
+  "sectionShorts": {
+    "message": "Shorts"
+  },
+  "shortsBlock": {
+    "message": "Приховувати й блокувати перехід"
+  },
+  "shortsBlockHint": {
+    "message": "Відкриття /shorts/… показує заглушку розширення."
+  },
+  "shortsHide": {
+    "message": "Лише приховувати"
+  },
+  "shortsHideHint": {
+    "message": "Пряме посилання на Shorts і далі відкриватиметься."
+  },
+  "sectionWatch": {
+    "message": "Сторінка відео"
+  },
+  "hideSidebar": {
+    "message": "Приховувати рекомендації праворуч"
+  },
+  "hideSidebarHint": {
+    "message": "Заразом прибирає кінцеві заставки поверх плеєра. Сам плеєр при цьому не рухається."
+  },
+  "hideComments": {
+    "message": "Приховувати коментарі"
+  },
+  "sectionOther": {
+    "message": "Інше"
+  },
+  "showToast": {
+    "message": "Показувати підказку при мертвому кліку"
+  },
+  "showToastHint": {
+    "message": "Інакше клік по відео у стрічці має вигляд помилки сайту."
+  },
+  "enabledLabel": {
+    "message": "Розширення увімкнено"
+  },
+  "statusSaved": {
+    "message": "Збережено. Оновіть вкладку YouTube, якщо вона вже відкрита."
+  },
+  "statusSavedFallback": {
+    "message": "Адреса плану не підійшла, повернули «Переглянути пізніше». Збережено."
+  },
+  "statusReset": {
+    "message": "Налаштування скинуто."
+  },
+  "stateDisabled": {
+    "message": "Вимкнено в налаштуваннях."
+  },
+  "statePaused": {
+    "message": "Пауза ще $MINUTES$ хв.",
+    "placeholders": {
+      "minutes": {
+        "content": "$1",
+        "example": "12"
+      }
+    }
+  },
+  "stateRedirect": {
+    "message": "Головна веде до плану, Shorts заблоковано."
+  },
+  "stateShowcase": {
+    "message": "Стрічка без запуску відео, Shorts заблоковано."
+  }
+}

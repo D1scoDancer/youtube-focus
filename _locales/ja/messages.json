@@ -1,0 +1,143 @@
+{
+  "extName": {
+    "message": "Youtube Focus"
+  },
+  "extDescription": {
+    "message": "ショート動画を取り除き、YouTube のホームを無限フィードから再生できないショーケースに変えます。"
+  },
+  "tagline": {
+    "message": "フィードは控えめに、ショートはゼロ。観ると決めたものだけを観る。"
+  },
+  "toastText": {
+    "message": "フィードからの再生は無効です。「後で見る」に保存してください。"
+  },
+  "toastLink": {
+    "message": "プランを開く"
+  },
+  "blockedTitle": {
+    "message": "ショート動画をブロックしました — Youtube Focus"
+  },
+  "blockedHeading": {
+    "message": "ショート動画をブロックしました"
+  },
+  "blockedText": {
+    "message": "Youtube Focus がショート動画への移動を止めました。目的のものがあったのなら、たいていはもうプランに入っています。"
+  },
+  "actionBack": {
+    "message": "戻る"
+  },
+  "actionPlanned": {
+    "message": "プランへ"
+  },
+  "actionSave": {
+    "message": "保存"
+  },
+  "actionReset": {
+    "message": "設定をリセット"
+  },
+  "actionOpenPlanned": {
+    "message": "予定した動画を開く"
+  },
+  "actionSnooze": {
+    "message": "15 分だけ停止"
+  },
+  "actionResume": {
+    "message": "ブロックを再開"
+  },
+  "actionOptions": {
+    "message": "設定"
+  },
+  "optionsTitle": {
+    "message": "設定 — Youtube Focus"
+  },
+  "sectionHome": {
+    "message": "ホーム"
+  },
+  "homeShowcase": {
+    "message": "再生できないショーケース"
+  },
+  "homeShowcaseHint": {
+    "message": "フィードは表示されますが、動画をクリックしても何も起きません。サムネイルの「後で見る」ボタンはそのまま使えます。プランはこれで埋めます。"
+  },
+  "homeRedirect": {
+    "message": "すぐにプランへ移動"
+  },
+  "homeRedirectHint": {
+    "message": "youtube.com を予定した一覧に置き換えます。"
+  },
+  "sectionPlanned": {
+    "message": "予定した動画"
+  },
+  "plannedLabel": {
+    "message": "プランのアドレス"
+  },
+  "plannedHint": {
+    "message": "既定では「後で見る」再生リスト。youtube.com を指し、パスが空でない必要があります。"
+  },
+  "sectionShorts": {
+    "message": "ショート動画"
+  },
+  "shortsBlock": {
+    "message": "非表示にして移動もブロック"
+  },
+  "shortsBlockHint": {
+    "message": "/shorts/… を開くと拡張機能の画面が表示されます。"
+  },
+  "shortsHide": {
+    "message": "非表示にするだけ"
+  },
+  "shortsHideHint": {
+    "message": "ショート動画への直接リンクは引き続き開きます。"
+  },
+  "sectionWatch": {
+    "message": "動画ページ"
+  },
+  "hideSidebar": {
+    "message": "右側のおすすめを非表示"
+  },
+  "hideSidebarHint": {
+    "message": "プレーヤー上の終了画面も消えます。プレーヤー自体の位置は変わりません。"
+  },
+  "hideComments": {
+    "message": "コメントを非表示"
+  },
+  "sectionOther": {
+    "message": "その他"
+  },
+  "showToast": {
+    "message": "反応しないクリックに説明を表示"
+  },
+  "showToastHint": {
+    "message": "表示しないと、フィードでのクリックがサイトの不具合に見えます。"
+  },
+  "enabledLabel": {
+    "message": "拡張機能を有効にする"
+  },
+  "statusSaved": {
+    "message": "保存しました。YouTube のタブを開いている場合は再読み込みしてください。"
+  },
+  "statusSavedFallback": {
+    "message": "そのアドレスは使えないため「後で見る」に戻しました。保存しました。"
+  },
+  "statusReset": {
+    "message": "設定をリセットしました。"
+  },
+  "stateDisabled": {
+    "message": "設定で無効になっています。"
+  },
+  "statePaused": {
+    "message": "あと $MINUTES$ 分停止中。",
+    "placeholders": {
+      "minutes": {
+        "content": "$1",
+        "example": "12"
+      }
+    }
+  },
+  "stateRedirect": {
+    "message": "ホームはプランへ、ショート動画はブロック中。"
+  },
+  "stateShowcase": {
+    "message": "フィードは再生不可、ショート動画はブロック中。"
+  }
+}

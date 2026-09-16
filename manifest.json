@@ -1,21 +1,30 @@
 {
   "manifest_version": 3,
-  "name": "Youtube Focus",
+  "name": "__MSG_extName__",
   "version": "0.1.0",
-  "description": "Убирает Shorts и превращает главную страницу YouTube из бесконечной ленты в витрину без запуска видео.",
+  "default_locale": "en",
+  "description": "__MSG_extDescription__",
   "icons": {
     "16": "icons/16.png",
     "48": "icons/48.png",
     "128": "icons/128.png"
   },
-  "permissions": ["storage", "declarativeNetRequest", "alarms"],
-  "host_permissions": ["*://*.youtube.com/*"],
+  "permissions": [
+    "storage",
+    "declarativeNetRequest",
+    "alarms"
+  ],
+  "host_permissions": [
+    "*://*.youtube.com/*"
+  ],
   "background": {
     "service_worker": "src/background/worker.js"
   },
   "content_scripts": [
     {
-      "matches": ["*://*.youtube.com/*"],
+      "matches": [
+        "*://*.youtube.com/*"
+      ],
       "run_at": "document_start",
       "all_frames": false,
       "js": [
@@ -24,7 +33,9 @@
         "src/content/guard.js",
         "src/content/sweep.js"
       ],
-      "css": ["src/content/hide.css"]
+      "css": [
+        "src/content/hide.css"
+      ]
     }
   ],
   "declarative_net_request": {
@@ -38,8 +49,12 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["src/pages/blocked.html"],
-      "matches": ["*://*.youtube.com/*"]
+      "resources": [
+        "src/pages/blocked.html"
+      ],
+      "matches": [
+        "*://*.youtube.com/*"
+      ]
     }
   ],
   "options_ui": {

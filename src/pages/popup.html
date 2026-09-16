@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Youtube Focus</title>
+    <title data-i18n="extName">Youtube Focus</title>
     <link rel="stylesheet" href="pages.css" />
     <style>
       body {
@@ -31,17 +31,25 @@
   </head>
   <body>
     <main class="card">
-      <h1>Youtube Focus</h1>
+      <h1 data-i18n="extName">Youtube Focus</h1>
       <p id="state">—</p>
       <div class="row">
-        <a id="planned" class="button primary" href="#" target="_blank" rel="noreferrer">
-          Открыть запланированное
+        <a
+          id="planned"
+          class="button primary"
+          href="#"
+          target="_blank"
+          rel="noreferrer"
+          data-i18n="actionOpenPlanned"
+        >
+          Open planned list
         </a>
-        <button id="snooze" type="button">Пауза на 15 минут</button>
-        <button id="options" type="button">Настройки</button>
+        <button id="snooze" type="button" data-i18n="actionSnooze">Pause for 15 minutes</button>
+        <button id="options" type="button" data-i18n="actionOptions">Settings</button>
       </div>
     </main>
     <script src="../common/settings.js"></script>
+    <script src="../common/i18n.js"></script>
     <script src="popup.js"></script>
   </body>
 </html>

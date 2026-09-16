@@ -1,0 +1,146 @@
+{
+  "extName": {
+    "message": "Youtube Focus",
+    "description": "Название расширения"
+  },
+  "extDescription": {
+    "message": "Removes Shorts and turns the YouTube home page from an endless feed into a showcase you cannot play videos from.",
+    "description": "Описание для магазина, до 132 символов"
+  },
+  "tagline": {
+    "message": "Less feed, zero Shorts, and only what you planned to watch."
+  },
+  "toastText": {
+    "message": "Opening videos from the feed is off. Save it to Watch later instead."
+  },
+  "toastLink": {
+    "message": "Open plan"
+  },
+  "blockedTitle": {
+    "message": "Shorts blocked — Youtube Focus"
+  },
+  "blockedHeading": {
+    "message": "Shorts blocked"
+  },
+  "blockedText": {
+    "message": "Youtube Focus intercepted a short video. If you came here for something specific, it is probably already on your plan."
+  },
+  "actionBack": {
+    "message": "Back"
+  },
+  "actionPlanned": {
+    "message": "Go to plan"
+  },
+  "actionSave": {
+    "message": "Save"
+  },
+  "actionReset": {
+    "message": "Reset settings"
+  },
+  "actionOpenPlanned": {
+    "message": "Open planned list"
+  },
+  "actionSnooze": {
+    "message": "Pause for 15 minutes"
+  },
+  "actionResume": {
+    "message": "Resume blocking"
+  },
+  "actionOptions": {
+    "message": "Settings"
+  },
+  "optionsTitle": {
+    "message": "Youtube Focus settings"
+  },
+  "sectionHome": {
+    "message": "Home page"
+  },
+  "homeShowcase": {
+    "message": "Showcase without playback"
+  },
+  "homeShowcaseHint": {
+    "message": "The feed stays visible, but clicking a video does nothing. The native Watch later button on the thumbnail keeps working — that is how you fill the plan."
+  },
+  "homeRedirect": {
+    "message": "Go straight to the plan"
+  },
+  "homeRedirectHint": {
+    "message": "youtube.com is replaced with your planned list."
+  },
+  "sectionPlanned": {
+    "message": "Planned list"
+  },
+  "plannedLabel": {
+    "message": "Plan address"
+  },
+  "plannedHint": {
+    "message": "Defaults to the native Watch later playlist. It must point to youtube.com and have a non-empty path."
+  },
+  "sectionShorts": {
+    "message": "Shorts"
+  },
+  "shortsBlock": {
+    "message": "Hide and block playback"
+  },
+  "shortsBlockHint": {
+    "message": "Opening /shorts/… shows the extension stub."
+  },
+  "shortsHide": {
+    "message": "Hide only"
+  },
+  "shortsHideHint": {
+    "message": "A direct link to Shorts keeps working."
+  },
+  "sectionWatch": {
+    "message": "Video page"
+  },
+  "hideSidebar": {
+    "message": "Hide recommendations on the right"
+  },
+  "hideSidebarHint": {
+    "message": "Also removes end screens on top of the player. The player itself does not move."
+  },
+  "hideComments": {
+    "message": "Hide comments"
+  },
+  "sectionOther": {
+    "message": "Other"
+  },
+  "showToast": {
+    "message": "Show a hint on a dead click"
+  },
+  "showToastHint": {
+    "message": "Otherwise a click in the feed just looks like a broken site."
+  },
+  "enabledLabel": {
+    "message": "Extension enabled"
+  },
+  "statusSaved": {
+    "message": "Saved. Reload the YouTube tab if it is already open."
+  },
+  "statusSavedFallback": {
+    "message": "That plan address did not work, Watch later restored. Saved."
+  },
+  "statusReset": {
+    "message": "Settings reset."
+  },
+  "stateDisabled": {
+    "message": "Turned off in settings."
+  },
+  "statePaused": {
+    "message": "Paused for another $MINUTES$ min.",
+    "description": "Состояние в попапе, $MINUTES$ — целое число минут",
+    "placeholders": {
+      "minutes": {
+        "content": "$1",
+        "example": "12"
+      }
+    }
+  },
+  "stateRedirect": {
+    "message": "Home goes to your plan, Shorts blocked."
+  },
+  "stateShowcase": {
+    "message": "Feed without playback, Shorts blocked."
+  }
+}

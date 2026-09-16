@@ -1,0 +1,143 @@
+{
+  "extName": {
+    "message": "Youtube Focus"
+  },
+  "extDescription": {
+    "message": "Убирает Shorts и превращает главную страницу YouTube из бесконечной ленты в витрину без запуска видео."
+  },
+  "tagline": {
+    "message": "Меньше ленты, ноль Shorts, смотрим только то, что запланировали."
+  },
+  "toastText": {
+    "message": "Переход из ленты отключён. Сохраните в «Смотреть позже»."
+  },
+  "toastLink": {
+    "message": "Открыть план"
+  },
+  "blockedTitle": {
+    "message": "Shorts заблокированы — Youtube Focus"
+  },
+  "blockedHeading": {
+    "message": "Shorts заблокированы"
+  },
+  "blockedText": {
+    "message": "Расширение Youtube Focus перехватило переход на короткое видео. Если вы шли сюда за чем-то конкретным — оно наверняка есть в вашем плане."
+  },
+  "actionBack": {
+    "message": "Назад"
+  },
+  "actionPlanned": {
+    "message": "К запланированному"
+  },
+  "actionSave": {
+    "message": "Сохранить"
+  },
+  "actionReset": {
+    "message": "Сбросить настройки"
+  },
+  "actionOpenPlanned": {
+    "message": "Открыть запланированное"
+  },
+  "actionSnooze": {
+    "message": "Пауза на 15 минут"
+  },
+  "actionResume": {
+    "message": "Снять паузу"
+  },
+  "actionOptions": {
+    "message": "Настройки"
+  },
+  "optionsTitle": {
+    "message": "Настройки — Youtube Focus"
+  },
+  "sectionHome": {
+    "message": "Главная страница"
+  },
+  "homeShowcase": {
+    "message": "Витрина без запуска"
+  },
+  "homeShowcaseHint": {
+    "message": "Лента видна, но клик по видео ничего не делает. Кнопка «Смотреть позже» на превью работает — ею и пополняется план."
+  },
+  "homeRedirect": {
+    "message": "Сразу уходить на план"
+  },
+  "homeRedirectHint": {
+    "message": "youtube.com заменяется на страницу запланированного."
+  },
+  "sectionPlanned": {
+    "message": "Запланированное"
+  },
+  "plannedLabel": {
+    "message": "Адрес плана"
+  },
+  "plannedHint": {
+    "message": "По умолчанию — родной плейлист «Смотреть позже». Должен вести на youtube.com и иметь непустой путь."
+  },
+  "sectionShorts": {
+    "message": "Shorts"
+  },
+  "shortsBlock": {
+    "message": "Скрывать и блокировать переход"
+  },
+  "shortsBlockHint": {
+    "message": "Открытие /shorts/… показывает заглушку расширения."
+  },
+  "shortsHide": {
+    "message": "Только скрывать"
+  },
+  "shortsHideHint": {
+    "message": "Прямая ссылка на Shorts продолжит открываться."
+  },
+  "sectionWatch": {
+    "message": "Страница видео"
+  },
+  "hideSidebar": {
+    "message": "Скрывать рекомендации справа"
+  },
+  "hideSidebarHint": {
+    "message": "Заодно убирает конечные заставки поверх плеера. Сам плеер при этом не двигается."
+  },
+  "hideComments": {
+    "message": "Скрывать комментарии"
+  },
+  "sectionOther": {
+    "message": "Прочее"
+  },
+  "showToast": {
+    "message": "Показывать подсказку при мёртвом клике"
+  },
+  "showToastHint": {
+    "message": "Иначе клик по видео в ленте выглядит как баг сайта."
+  },
+  "enabledLabel": {
+    "message": "Расширение включено"
+  },
+  "statusSaved": {
+    "message": "Сохранено. Обновите вкладку YouTube, если она уже открыта."
+  },
+  "statusSavedFallback": {
+    "message": "Адрес плана не подошёл, вернули «Смотреть позже». Сохранено."
+  },
+  "statusReset": {
+    "message": "Настройки сброшены."
+  },
+  "stateDisabled": {
+    "message": "Выключено в настройках."
+  },
+  "statePaused": {
+    "message": "Пауза ещё $MINUTES$ мин.",
+    "placeholders": {
+      "minutes": {
+        "content": "$1",
+        "example": "12"
+      }
+    }
+  },
+  "stateRedirect": {
+    "message": "Главная уводит на план, Shorts заблокированы."
+  },
+  "stateShowcase": {
+    "message": "Лента без запуска видео, Shorts заблокированы."
+  }
+}

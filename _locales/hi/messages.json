@@ -1,0 +1,143 @@
+{
+  "extName": {
+    "message": "Youtube Focus"
+  },
+  "extDescription": {
+    "message": "Shorts हटाता है और YouTube के होम पेज को अंतहीन फ़ीड से ऐसी प्रदर्शनी बना देता है जहाँ से वीडियो नहीं चलते।"
+  },
+  "tagline": {
+    "message": "कम फ़ीड, शून्य Shorts, और सिर्फ़ वही जो आपने देखने की योजना बनाई थी।"
+  },
+  "toastText": {
+    "message": "फ़ीड से वीडियो खोलना बंद है। उसे «बाद में देखें» में सहेजें।"
+  },
+  "toastLink": {
+    "message": "योजना खोलें"
+  },
+  "blockedTitle": {
+    "message": "Shorts अवरुद्ध — Youtube Focus"
+  },
+  "blockedHeading": {
+    "message": "Shorts अवरुद्ध"
+  },
+  "blockedText": {
+    "message": "Youtube Focus ने एक छोटा वीडियो रोक दिया। अगर आप किसी ख़ास चीज़ के लिए आए थे, तो वह शायद पहले से आपकी योजना में है।"
+  },
+  "actionBack": {
+    "message": "वापस"
+  },
+  "actionPlanned": {
+    "message": "योजना पर जाएँ"
+  },
+  "actionSave": {
+    "message": "सहेजें"
+  },
+  "actionReset": {
+    "message": "सेटिंग रीसेट करें"
+  },
+  "actionOpenPlanned": {
+    "message": "नियोजित सूची खोलें"
+  },
+  "actionSnooze": {
+    "message": "15 मिनट के लिए रोकें"
+  },
+  "actionResume": {
+    "message": "रोक फिर शुरू करें"
+  },
+  "actionOptions": {
+    "message": "सेटिंग"
+  },
+  "optionsTitle": {
+    "message": "सेटिंग — Youtube Focus"
+  },
+  "sectionHome": {
+    "message": "होम पेज"
+  },
+  "homeShowcase": {
+    "message": "बिना प्लेबैक वाली प्रदर्शनी"
+  },
+  "homeShowcaseHint": {
+    "message": "फ़ीड दिखती रहती है, पर वीडियो पर क्लिक करने से कुछ नहीं होता। थंबनेल पर «बाद में देखें» बटन काम करता रहता है — योजना इसी से भरती है।"
+  },
+  "homeRedirect": {
+    "message": "सीधे योजना पर जाएँ"
+  },
+  "homeRedirectHint": {
+    "message": "youtube.com की जगह आपकी नियोजित सूची खुलती है।"
+  },
+  "sectionPlanned": {
+    "message": "नियोजित"
+  },
+  "plannedLabel": {
+    "message": "योजना का पता"
+  },
+  "plannedHint": {
+    "message": "डिफ़ॉल्ट रूप से «बाद में देखें» प्लेलिस्ट। पता youtube.com का होना चाहिए और उसका पाथ खाली नहीं होना चाहिए।"
+  },
+  "sectionShorts": {
+    "message": "Shorts"
+  },
+  "shortsBlock": {
+    "message": "छिपाएँ और खुलना रोकें"
+  },
+  "shortsBlockHint": {
+    "message": "/shorts/… खोलने पर एक्सटेंशन का पेज दिखता है।"
+  },
+  "shortsHide": {
+    "message": "सिर्फ़ छिपाएँ"
+  },
+  "shortsHideHint": {
+    "message": "Shorts का सीधा लिंक खुलता रहेगा।"
+  },
+  "sectionWatch": {
+    "message": "वीडियो पेज"
+  },
+  "hideSidebar": {
+    "message": "दाईं ओर की सिफ़ारिशें छिपाएँ"
+  },
+  "hideSidebarHint": {
+    "message": "प्लेयर के ऊपर आने वाली एंड स्क्रीन भी हटती हैं। प्लेयर ख़ुद अपनी जगह से नहीं हिलता।"
+  },
+  "hideComments": {
+    "message": "टिप्पणियाँ छिपाएँ"
+  },
+  "sectionOther": {
+    "message": "अन्य"
+  },
+  "showToast": {
+    "message": "निष्क्रिय क्लिक पर संकेत दिखाएँ"
+  },
+  "showToastHint": {
+    "message": "वरना फ़ीड में क्लिक करना साइट की ख़राबी जैसा लगता है।"
+  },
+  "enabledLabel": {
+    "message": "एक्सटेंशन चालू है"
+  },
+  "statusSaved": {
+    "message": "सहेजा गया। YouTube टैब पहले से खुला हो तो उसे रीलोड करें।"
+  },
+  "statusSavedFallback": {
+    "message": "वह पता काम नहीं आया, «बाद में देखें» वापस कर दिया। सहेजा गया।"
+  },
+  "statusReset": {
+    "message": "सेटिंग रीसेट कर दी गईं।"
+  },
+  "stateDisabled": {
+    "message": "सेटिंग में बंद है।"
+  },
+  "statePaused": {
+    "message": "$MINUTES$ मिनट और रुका हुआ।",
+    "placeholders": {
+      "minutes": {
+        "content": "$1",
+        "example": "12"
+      }
+    }
+  },
+  "stateRedirect": {
+    "message": "होम योजना पर ले जाता है, Shorts अवरुद्ध।"
+  },
+  "stateShowcase": {
+    "message": "फ़ीड है पर प्लेबैक नहीं, Shorts अवरुद्ध।"
+  }
+}
